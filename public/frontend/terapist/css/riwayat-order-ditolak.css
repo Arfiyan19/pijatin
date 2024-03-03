@@ -1,0 +1,149 @@
+:root {
+    --green: #f2fef6;
+    --ijo: #56ab91;
+    --white: #e3f2fd;
+    --gray: #ffffff;
+    --black1: #222;
+    --tosca: #3fc1c0;
+    --tosca2: #0899ba;
+    --black2: #999;
+}
+
+body {
+    /* font-family: Arial, sans-serif; */
+    font-family: poppins;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.topbar {
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    background: #56ab91;
+    color: #fff;
+    align-items: center;
+}
+
+.topbar .backbtn {
+    margin: 17px;
+}
+
+.topbar p {
+    font-size: 2.5vh;
+    color: #fff;
+    align-items: center;
+    margin: 5px 10px;
+    font-weight: bold;
+}
+
+
+.topbar a i {
+    font-size: 3.5vh;
+    color: #fff;
+    align-items: center;
+    margin: 5px 10px;
+    margin-left: 20px;
+}
+
+.topbar p {
+    margin-left: -10px;
+}
+
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    background-color: var(--gray);
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+    background-color: var(--gray);
+    /* position: fixed; */
+    z-index: 2;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin: 5px auto;
+    box-shadow: 0px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer .nav-menu {
+    /* box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2); */
+    max-width: 700px;
+    margin: 0 auto;
+    /* background-color: var(--gray); */
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.active {
+    border-bottom: 2px solid #56AB91;
+}
+
+.footer .nav-menu h1 {
+    color: #34CBAA;
+    font-family: Poppins;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.4px;
+}
+
+.footer .nav-menu p {
+    color: #626262;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.4px;
+}
+
+.navbar-nav a {
+    color: #56AB91;
+    margin: 5px 15px;
+    font-weight: bold;
+    margin-left: 25px;
+}
+
+.detail {
+    background-color: #ffff;
+    max-width: 800px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid #BCB8B8;
+}
+
+.table2 {
+    margin: 5px 20px;
+    margin-top: 15px;
+}
+
+.imgprofileuser {
+    width: 40px;
+    margin: 0 auto;
+
+}
+
+@media (max-width: 565px) {
+    .topbar p {
+        /* margin-left: -10px; */
+        font-size: 16px;
+    }
+}

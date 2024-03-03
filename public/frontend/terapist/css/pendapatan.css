@@ -1,0 +1,499 @@
+/* ============ Profile therapist ============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin: 0;padding: 0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+.topbar{
+    width: 100vw;
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    background: #56ab91;
+    color: #fff;
+    align-items: center;
+}
+.topbar p,
+.topbar a i{
+    font-size: 2.5vh;
+    color: #fff;
+    align-items: center;
+}
+.backbtn a i{color: #fff;}
+.idbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+.bio h4{
+    font-weight: bold;
+}
+.content-frame{
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.frame-saldo {
+  width: 90%;
+  border-radius: 15px;
+  background-color: #56ab91;
+  display: flex;
+  flex-direction: column; /* Mengganti flex-direction ke column untuk menyusun secara vertikal */
+  justify-content: left;
+  align-items: left;
+  margin-bottom: 10px;
+}
+
+.ikon-dompet {
+  width: 6%;
+  padding-left: 20px;
+}
+
+.ikon-dompet img {
+  width: 29.463px;
+  height: 24px;
+}
+
+.nominal-col {
+  color: #ffffff;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-left: 40px;
+}
+
+/* Tambahan style untuk memisahkan antara row1 dan row2 */
+.frame-saldo-row1,
+.frame-saldo-row2 {
+  display: flex;
+  padding-top: 10px; /* Sesuaikan dengan kebutuhan padding atas */
+  align-items: center;
+}
+.menu-pendapatan {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* Align to the end (right) of the container */
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.menu-box {
+  display: inline-block;
+  text-align: center;
+  padding-left: 5px;
+  /* padding-left: 10px; */
+}
+
+.menu-image {
+  margin: auto;
+  background-color: white;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+}
+
+.menu-image img {
+  width: 25px;
+  height: auto;
+}
+.menu-text {
+  margin-top: 5px;
+  font-size: 14px;
+  color:white;
+}
+
+
+/* //riwayat  */
+.frame-riwayat {
+  width: 90%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column; /* Mengganti flex-direction ke column untuk menyusun secara vertikal */
+  justify-content: left;
+  align-items: left;
+  margin-bottom: 10px;
+}
+
+
+.frame-riwayat-title{
+  color: #036666;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: -0.48px;
+}
+.frame-riwayat-content {
+  width: 90%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column; /* Mengganti flex-direction ke column untuk menyusun secara vertikal */
+  justify-content: left;
+  align-items: left;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1.5px solid var(--neu2-neu2-004, #BCB8B8);
+  background: var(--neu2-neu2-009, #FFF);
+  padding: 10px; /* Added padding for spacing within the frame */
+}
+
+/* ... (existing styles) */
+
+/* Tambahkan style untuk dua baris/rows baru */
+.riwayat-row {
+  display: flex;
+  justify-content: left;
+}
+
+.riwayat-item {
+  flex: 1; /* Membagi ruang secara merata di dalam baris */
+  color: #000000; /* Warna teks hitam */
+}
+.riwayat-item p{
+  font-family: Poppins;
+font-size: 12px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.kolom-kiri {
+  text-align: left;
+}
+.kolom-kiri p{
+  color: #000000;
+font-family: Poppins;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.kolom-kanan {
+  text-align: right;
+}
+.kolom-kanan p{
+color: #000000;
+font-family: Poppins;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+  
+  .menu-item img {
+    width: 5vh;
+    height: 5vh;
+    margin-bottom: 5px; /* Sesuaikan margin sesuai kebutuhan */
+  }
+  
+  
+  .menu-item span {
+    font-size: 12px; /* Sesuaikan ukuran teks sesuai kebutuhan */
+    color: #14916b;
+    padding-bottom: 5px; /* Sesuaikan padding sesuai kebutuhan */
+  }
+  .content-ringkasan-pendapatan {
+    width: 90%;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+    padding: 10px;
+
+}
+
+.ringkasan-text {
+    text-align: center;
+}
+
+.ringkasan-detail {
+    border-radius: 10px;
+    background: #E4E4E4;
+    color: #000000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.ringkasan-detail-history {
+  background: #E4E4E4;
+  color: #000000;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  height: 0; /* Mulai dengan ketinggian nol */
+  display: flex;
+  flex-direction: column;
+}
+
+.ringkasan-detail-history.active {
+  height: auto; /* Setel ketinggian ke otomatis ketika aktif */
+}
+
+.detail-item {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #ffffff; /* Garis pemisah antar item */
+}
+
+.detail-item:last-child {
+  border-bottom: none; /* Hapus garis pemisah pada item terakhir */
+}
+
+.detail-item p {
+  margin: 0;
+}
+
+
+.detail-item {
+    flex: 1;
+    text-align: center;
+}
+
+.detail-item a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 12px;
+    font-family: poppins;
+}  
+.detail-item p {
+    text-align: left;
+    margin-top: 7px;
+    padding-left: 10px;
+    font-size: 12px;
+    font-family: poppins;
+}
+.detail-item-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px; /* Sesuaikan dengan kebutuhan margin atas */
+}
+
+.detail-item-line .column {
+  display: flex;
+  align-items: center;
+}
+
+.detail-item-line .column:first-child {
+  margin-right: 10px; /* Sesuaikan dengan kebutuhan margin antara kolom */
+}
+.detail-item-line .icon{
+  width: 20px; /* Sesuaikan dengan ukuran gambar yang diinginkan */
+  height: 20px;
+  margin-right: 5px; /* Sesuaikan dengan kebutuhan margin antara gambar dan teks */
+}
+.detail-item-line .icon img {
+  width: 20px; /* Sesuaikan dengan ukuran gambar yang diinginkan */
+  height: 20px;
+  margin-right: 5px; /* Sesuaikan dengan kebutuhan margin antara gambar dan teks */
+}
+/* //span  */
+.detail-item-line span {
+  font-size: 12px; /* Sesuaikan dengan ukuran teks yang diinginkan */
+  color: #6A6A6A;
+}
+
+
+.syarat-ketentuan {
+  font-family: 'Poppins', sans-serif;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  height: 250px; /* Tambahkan tinggi 150px */
+  /* overflow-y: auto;  */
+}
+
+.title {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.56px;
+}
+
+.detail {
+  text-align: left;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: -0.56px;
+  margin-top: 10px; /* Atur jarak antara title dan detail jika diperlukan */
+}
+
+.detail p {
+  margin: 0; /* Hapus margin bawaan pada paragraf */
+}
+.detail li {
+  margin-left: 20px; /* Sesuaikan dengan kebutuhan indentasi */
+  /* //br  */
+  margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.content a{
+    width: 100%;
+}
+.menu{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+}
+  
+  .toggle {
+    margin-left: auto; /* Untuk meletakkan toggle di sebelah kanan */
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Style the round slider */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+
+.menu .frame-image{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background: #56ab91;
+    margin-right: 10px;
+}
+
+.menu img{
+    width: 5vh;
+    height: 5vh;
+}
+.menu #alert{
+width: 4vh;
+height: 4vh;
+}
+.menu label{
+    /* width: 75vw; */
+    font-size: 2.5vh;
+    padding-left: 15px;
+    color: #000;
+}
+.menu i{ color: #000;}
+/* =============FOOTER (NEW)============== */
+.footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width:100vw ;
+    height: 10vh;
+    /* background: #56ab91; */
+    justify-content: space-around;
+    align-items: center;
+}
+.footer a{
+    width: 12vh;
+    height: 8vh;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    font-size: 2vh;
+
+}
+.footer a img{
+    width: 3.5vh;
+    height: 3.5vh;
+}
+
+a.active p {
+  color: #34CBAA; /* Warna teks untuk elemen <p> aktif */
+  font-family: Poppins; /* Font family untuk elemen <p> aktif */
+}

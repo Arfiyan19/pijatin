@@ -1,0 +1,123 @@
+/* ============ Lupa sandi Terapis ============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background: rgb(255, 255, 255);
+}
+.backbtn{
+    width: 100vw;
+    justify-content: left;
+    align-items: center;
+
+}
+.top{
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vh 0;
+    background: rgb(255, 255, 255);
+    text-align: center;
+}
+.top img{
+    width: 5vh;
+    height: 3vh;
+}
+.top h2{
+    font-size: 3vh;
+    margin: 10vh;
+}
+.top p{
+    font-size: 2.5vh;
+}
+
+.bottom{
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 5vh 0; */
+    background: rgb(255, 255, 255);
+}
+.isian{
+    width: 100vw;
+    height: 15vh;
+    /* padding: 0 10vw; */
+    /* display: flex; */
+    /* flex-direction: row; */
+    background: #ffffff;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.isian input{
+    width: 7vh;
+    height: 7vh;
+    margin: 0 10px;
+    font-size: 6vh;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+.isian .error{
+    /* display: flex; */
+    background: #fff;
+    width: 100%;
+    height: 3vh;
+    text-align: center;
+}
+.action{
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content:center; */
+    text-align: center;
+
+}
+.action .timer{
+    width: 100%;
+    height: 5vh;
+    margin: 2.5vh 0;
+    font-size: 5vh;
+    /* align-items: center;
+    text-align: center; */
+
+}
+.action a{
+    width: 100%;
+    height:5vh ;
+    font-size: 2vh;
+    color: rgb(255, 0, 0);
+
+}
+.action button{
+    width: 40%;
+    height: 5vh;
+    font-size:2vh ;
+    border-radius: 25px;
+    background: #56AB91;
+    color: #fff;
+}
+.action button:hover{
+    border: 2px solid #56AB91;
+    background: #fff;
+    color: #56AB91;
+}

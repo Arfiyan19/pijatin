@@ -1,0 +1,581 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* =============== Globals ============== */
+* {
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #56ab91;
+    --white: #e3f2fd;
+    --gray: #ffffff;
+    --black1: #222;
+    --tosca: #3fc1c0;
+    --tosca2: #0899ba;
+    --black2: #999;
+    --black3: #bcb8b8;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+
+.topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 50px;
+    background: var(--gray);
+}
+
+.user {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-left: 25px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.notifikasi {
+    position: relative;
+    display: flex;
+    margin-right: 35px;
+    justify-content: right;
+    align-items: center;
+    font-size: 2.5rem;
+}
+
+.cardMain {
+    position: absolute;
+    width: 100%;
+    height: 180px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.cardMain .card {
+    position: relative;
+    background: var(--tosca);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    height: 150%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.riwayat {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    margin-top: 18%;
+    align-items: center;
+    padding: 0px 150px;
+    color: var(--black1);
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 0px 200px 90px 200px;
+    display: grid;
+    grid-gap: 30px;
+}
+
+.cardBox .card {
+    position: relative;
+    background: var(--gray);
+    border-radius: 10px;
+    height: 450px;
+    display: grid;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    min-height: 500px;
+    border-style: solid;
+}
+
+.cardMain .card .pp {
+    height: 100%;
+    width: 16%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cardMain .card .form1 {
+    height: 100%;
+    width: 22%;
+    display: block;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+.cardMain .card .form1 .space {
+    height: 14%;
+    width: 100%;
+    visibility: hidden;
+}
+
+.cardMain .card .form1 .formUsername {
+    /* height: 25%; */
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.cardMain .card .form1 .formNama {
+    /* height: 25%; */
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.cardMain .card .form1 .formEmail {
+    /* height: 25%; */
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.cardMain .card .form1 .username {
+    font-size: 0.7rem;
+    color: var(--gray);
+}
+
+.cardMain .card .form1 .konten {
+    border-radius: 50px;
+    height: 35px;
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-top: 5px;
+    background-color: var(--gray);
+}
+
+.cardMain .card .form2 {
+    height: 100%;
+    width: 22%;
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cardMain .card .form2 .space {
+    height: 14%;
+    width: 100%;
+    visibility: hidden;
+}
+
+.cardMain .card .form2 .formUsername {
+    height: 25%;
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.cardMain .card .form2 .formNama {
+    height: 25%;
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.cardMain .card .form2 .formEmail {
+    height: 25%;
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.cardMain .card .form2 .username {
+    font-size: 0.7rem;
+    color: var(--gray);
+}
+
+.cardMain .card .form2 .konten {
+    border-radius: 50px;
+    height: 35px;
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-top: 5px;
+    background-color: var(--gray);
+}
+
+.cardMain .card .tgl {
+    height: 100%;
+    width: 40%;
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    padding: none;
+}
+
+.cardMain .card .tgl p {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gray);
+    margin-top: 5%;
+    margin-left: 60%;
+}
+
+.cardMain .card .tgl button {
+    position: relative;
+    width: 20%;
+    height: 15%;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 18%;
+    margin-left: 70%;
+}
+
+.cardMain .card .pp .icon {
+    position: relative;
+    height: 100%;
+    width: 25%;
+}
+
+.cardMain .card .pp .icon ion-icon {
+    font-size: 1.75rem;
+    padding: 40px;
+}
+
+.cardMain .card .pp .prof {
+    display: inline-block;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10%;
+    width: 75%;
+    height: 90%;
+}
+
+.cardMain .card .pp .prof .users {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.cardMain .card .pp .prof .caption {
+    position: relative;
+    width: 100%;
+    height: 25%;
+    margin-top: 10px;
+}
+
+.cardMain .card .pp .prof p {
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--gray);
+}
+
+.cardMain .card .pp .users img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardBox table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cardBox table thead td {
+    font-weight: 600;
+    text-align: center;
+    border: 1px var(--black1);
+}
+
+.cardBox .card table tr {
+    color: var(--black1);
+    border-bottom: 1px solid;
+}
+
+.cardBox .card table td:first-child {
+    border-left: none;
+}
+
+.cardBox .card table tr td {
+    border-left: 1px solid;
+    padding: 25px 10px 25px 10px;
+    text-align: center;
+}
+
+.cardBox .card table tbody td {
+    border-left: 1px solid;
+    padding: 0px 10px 0px 10px;
+    text-align: center;
+}
+
+.status.delivered {
+    padding: 2px 4px;
+    background: #8de02c;
+    color: var(--gray);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ?\Detail Riwayat Transaksi */
+
+.text {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    margin-top: 1%;
+    align-items: center;
+    padding: 0px 20px;
+    color: var(--black1);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.text .icon {
+    margin-right: 1px;
+    width: 7%;
+}
+
+.text .icon ion-icon {
+    font-size: 1.75rem;
+    margin-right: 20px;
+    padding: 40px;
+}
+
+.cardDetail {
+    position: relative;
+    width: 100%;
+    padding: 0px 100px 90px 100px;
+    display: grid;
+    grid-gap: 30px;
+}
+
+.cardDetail .card {
+    position: relative;
+    background: var(--gray);
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 50px;
+    height: 450px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card .card-left {
+    height: 100%;
+    width: 50%;
+    border-right: 1px solid;
+}
+
+.card .card-right {
+    height: 100%;
+    width: 50%;
+}
+.card-left table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.card-left table thead td {
+    font-weight: 500;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.card-right table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.card-right table thead td {
+    font-weight: 500;
+    text-align: left;
+    padding-left: 150px;
+}
+
+.card-right table thead td select {
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    color: #6e9d03;
+}
+
+.card-right table thead tr td {
+    padding: 10px 10px 10px 150px;
+}
+
+.card-left table thead tr td {
+    padding: 10px;
+}
+
+/* Isi Dompet Member Terapis */
+
+.cardDuo {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    padding: 0px 59px 0px 59px;
+    display: flex;
+    grid-gap: 10px;
+}
+
+.cardDuo .cardProfile {
+    position: relative;
+    display: inline-block;
+    background: var(--gray);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+    width: 326px;
+    height: 380px;
+    border: 1px solid var(--black3);
+}
+
+.cardDuo .cardKomisi {
+    position: relative;
+    background: var(--gray);
+    padding: 30px;
+    margin-top: 10px;
+    border-radius: 20px;
+    width: 1100px;
+    height: 485px;
+    border: 1px solid var(--black3);
+}
+
+.cardDuo .cardProfile img {
+    width: 150px;
+    height: 150px;
+    margin-left: 22%;
+    border-radius: 50%;
+}
+
+.cardDuo .cardProfile table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.cardDuo .cardKomisi p {
+    font-weight: 600;
+}
+
+.cardProfile table td:last-child {
+    text-align: right;
+}
+
+.cardProfile table td:first-child {
+    font-weight: 600;
+}
+
+.cardProfile table tr td {
+    padding: 7px 0px 7px 0px;
+}
+
+.cardDuo .cardKomisi table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.cardKomisi table td:last-child {
+    text-align: right;
+}
+
+.cardKomisi table tr td {
+    padding: 5px 0px 5px 0px;
+    border-bottom: 1px solid var(--black3);
+}
+
+.cardKomisi .input {
+    width: 100%;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.cardKomisi label {
+    width: 100%;
+    font-weight: 600;
+}
+
+.cardKomisi input {
+    width: 100%;
+    height: 40px;
+    margin-top: 7px;
+    border-radius: 10px;
+    border: 1px solid var(--black3);
+}
+
+.cardKomisi .buttonkirim {
+    position: relative;
+    width: 130px;
+    height: 40px;
+    margin-top: 40px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #d9d9d9;
+    font-size: 12px;
+    margin-left: 45%;
+}
+
+.cardKomisi .modal-content {
+    padding: 20px;
+    width: 400px;
+    height: 200px;
+    margin-top: 100%;
+    border-radius: 20px;
+    justify-content: center;
+}
+
+.cardKomisi .modal-content .modal-body {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cardKomisi .modal-content .modal-body button {
+    width: 130px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #d9d9d9;
+    font-size: 12px;
+}

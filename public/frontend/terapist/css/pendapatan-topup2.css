@@ -1,0 +1,155 @@
+/* ============ PENDAPATAN : TOP-UP 2 ============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin: 0;padding: 0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+.topbar{
+    width: 100vw;
+    height: 7vh;
+    position: fixed;
+    top: 0;
+    background: #56ab91;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.topbar p,
+.topbar a i{
+    font-size: 2.5vh;
+    color: #fff;
+    align-items: center;
+}
+.content{
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 7vh;
+}
+.halftop{
+    width: 100%;
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.rekening{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: no-repeat url("../img/bgisisaldo2.png");
+
+    background-size: 100% 100%;
+    background-position: center;
+    background-position-y: top;
+
+}
+.inner{
+    /* position: relative; */
+    background: none;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+
+}
+.rek{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10% 5% 0;
+
+}
+.rek img{
+    width: 40px;
+    height: fit-content;
+}
+.batas{
+    display: flex;
+    flex-direction: column;
+}
+.bar{font-weight: bold;}
+.step{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.number{
+    width: 7vw;
+    height: 7vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+    background: #56ab91;
+    color: #fff;
+    font-weight: bold;
+}
+.step span{
+    width: 90%;
+    height: fit-content;
+    margin-left: 10px;
+    font-size: 2vh;
+}
+.btn{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    width: 35vw;
+    height: 4vh;
+    background: #56ab91;
+    border-radius: 25px;
+    color: #fff;
+}
+
+
+
+
+
+
+/* =============FOOTER (NEW)============== */
+.footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width:100vw ;
+    height: 10vh;
+    /* background: #56ab91; */
+    justify-content: space-around;
+    align-items: center;
+}
+.footer a{
+    width: 12vh;
+    height: 8vh;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    font-size: 2vh;
+
+}
+.footer a img{
+    width: 3.5vh;
+    height: 3.5vh;
+}

@@ -1,0 +1,144 @@
+/* ============ Edit Profile therapist ============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin: 0;padding: 0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+.topbar{
+    width: 100vw;
+    height: 6vh;
+    display: flex;
+    flex-direction: row;
+    background: #56ab91;
+    color: #fff;
+    align-items: center;
+    font-size: 2.5vh;
+}
+.backbtn a i{color: #fff;}
+.content{
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    padding: 4vh;
+}
+.foto {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: #fff;
+    position: relative; /* Tambahkan properti position: relative; agar dapat memposisikan elemen anak secara absolut */
+}
+
+.foto img {
+    width: 12vh;
+    height: 12vh;
+}
+
+.upload {
+    position: absolute; /* Ganti menjadi absolute */
+    bottom: 20%; /* Gunakan persentase untuk menentukan posisi dari bawah */
+    left: 55%;
+    width: 30px; /* Sesuaikan dengan ukuran yang diinginkan */
+    height: 30px; /* Sesuaikan dengan ukuran yang diinginkan */
+    cursor: pointer;
+}
+
+.upload img {
+    width: 100%;
+    height: 100%;
+    size: 2vh;
+}
+
+
+
+label{
+    font-size: 2vh;
+    color: #000;
+}
+span{
+    color: #fc0303;
+}
+.form-input{
+    width: 100%;
+    height: 5vh;
+    border: 1px solid #56ab91;
+    border-radius: 25px;
+    padding: 0 15px;
+    font-size: 2vh;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.radio{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    font-size: 2vh;
+    margin-bottom: 15px;
+}
+#perempuan{
+    margin-left: 10px;
+}
+.tombol{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.tombol input{
+    width: 35%;
+    height: 5vh;
+    border-radius: 25px;
+    margin: auto;
+    text-align: center;
+    background: #56ab91;
+    color: #fff;
+    font-size: 2vh;
+}
+.tombol input:hover{
+    background: #fff;
+    color: #56ab91;
+    border: 1px solid #56ab91;
+}
+
+/* =============FOOTER (NEW)============== */
+.footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width:100vw ;
+    height: 10vh;
+    /* background: #56ab91; */
+    justify-content: space-around;
+    align-items: center;
+    border-top: 2px solid #56ab91;
+}
+.footer a{
+    width: 12vh;
+    height: 8vh;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    font-size: 2vh;
+
+}
+.footer a img{
+    width: 3.5vh;
+    height: 3.5vh;
+}

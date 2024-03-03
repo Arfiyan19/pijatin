@@ -1,0 +1,27 @@
+.container-tambah h4 {
+    color: #036666;
+
+    /* heading/16px H11 */
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.64px;
+}
+
+.form-label {
+    color: var(--neutual-neutal-001, #000);
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.48px;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #56ab91;
+    background: var(--neu2-neu2-009, #fff);
+}

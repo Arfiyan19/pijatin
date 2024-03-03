@@ -1,0 +1,153 @@
+/* ============ PROFILE : SETTING ============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin: 0;padding: 0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+.topbar{
+    width: 100vw;
+    height: 7vh;
+    background: #56ab91;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.topbar p,
+.topbar a i{
+    font-size: 2.5vh;
+    color: #fff;
+    align-items: center;
+}
+.content{
+    width: 100vw;
+    height: 93vh;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    font-size: 2vh;
+    color: #000;
+}
+.content a{
+    width: 100%;
+}
+.menu{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+}
+.menu img{
+    width: 5vh;
+    height: 5vh;
+}
+.menu #alert{
+width: 4vh;
+height: 4vh;
+}
+.menu label{
+    width: 75vw;
+    font-size: 2.5vh;
+    padding-left: 15px;
+    color: #000;
+}
+.menu i{ color: #000;}
+/* =============FOOTER (NEW)============== */
+.footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width:100vw ;
+    height: 10vh;
+    /* background: #56ab91; */
+    justify-content: space-around;
+    align-items: center;
+}
+.footer a{
+    width: 12vh;
+    height: 8vh;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    font-size: 2vh;
+
+}
+.footer a img{
+    width: 3.5vh;
+    height: 3.5vh;
+}
+
+/* ========= POP UP WINDOW ========= */
+.popup{
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    color: #000;
+    transform: translate(-50%,-50%);
+    border: 1.5px solid #000;
+    border-radius: 15px;
+    visibility: hidden;
+}
+.open-popup{
+    visibility: visible;
+}
+.headpop{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #b9e4c7;
+    font-size: 2.5vh;
+    border-radius: 15px 15px 0 0;
+}
+
+.isi{
+    width: 100vw;
+    height: fit-content;
+    padding: 10px;
+    font-size: 2.5vh;
+    border-radius: 0 0 15px 15px;
+
+}
+.kenapa{
+    display: flex;
+    /* font-weight: bold; */
+    align-items: center;
+    justify-content: center;
+}
+
+.lapor{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.lapor a button{
+    width: 30vw;
+    height: fit-content;
+    border-radius: 25px;
+    font-size: 2.5vh;
+    color: #fff;
+    background: #56AB91;
+}

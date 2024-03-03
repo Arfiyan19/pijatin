@@ -1,0 +1,122 @@
+/* ============ Profile therapist ============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin: 0;padding: 0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+.header{
+    width: 100%;
+    background: #65ab91;
+    border-radius: 0 0 25px 25px;
+    display: flex;
+    flex-direction: column;
+}
+.preview{
+    width: 100%;
+    /* justify-content: center; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+.foto{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+ .foto img{
+    width: 15vh;
+    height: 15vh;
+    /* //cursor  */
+    cursor: pointer;
+
+}
+.foto span img{
+    position: absolute;
+    top: 16vh ;
+    right: 34vw;
+    width: 30px;
+    height: 30px;
+}
+.idbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.bio h4{
+    font-weight: bold;
+}
+.content{
+    width: 100vw;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.content a{
+    width: 100%;
+}
+.menu{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+}
+.menu img{
+    width: 5vh;
+    height: 5vh;
+}
+.menu #alert{
+width: 4vh;
+height: 4vh;
+}
+.menu label{
+    width: 75vw;
+    font-size: 2.5vh;
+    padding-left: 15px;
+    color: #000;
+}
+.menu i{ color: #000;}
+/* =============FOOTER (NEW)============== */
+.footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width:100vw ;
+    height: 10vh;
+    /* background: #56ab91; */
+    justify-content: space-around;
+    align-items: center;
+}
+.footer a{
+    width: 12vh;
+    height: 8vh;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    font-size: 2vh;
+
+}
+.footer a img{
+    width: 3.5vh;
+    height: 3.5vh;
+}
+
+a.active p {
+    color: #34CBAA; /* Warna teks untuk elemen <p> aktif */
+    font-family: Poppins; /* Font family untuk elemen <p> aktif */
+  }

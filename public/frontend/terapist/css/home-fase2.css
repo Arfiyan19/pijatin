@@ -1,0 +1,287 @@
+/* ============ HOME Fase 2 ============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin: 0;padding: 0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+
+}
+.topbar{
+    width: 100%;
+    height: 8vh;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 5px;
+    background: #fff;
+}
+.logo{
+    width: 50%;
+    justify-content: flex-start;
+}
+.logo img{
+    width: 7vh;
+    height: 4vh;
+}
+.logokanan{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+
+}
+/* .user{
+    width: fit-content;
+    text-align: right;
+}
+.lonceng{
+    width: fit-content;
+    text-align: right;
+} */
+.user img{
+    width: 5vh;
+    height: 5vh;
+    margin: 0 5px;
+}
+.lonceng img{
+    width: 4vh;
+    height: 5vh;
+    margin: 0 5px;
+}
+/* ============================================ */
+.saldotab{
+    margin-top: 8vh;
+    width: 100%;
+    padding: 10px;
+}
+.saldobox{
+    width: 100%;
+    height: 20%;
+    background: #56ab91;
+    border-radius: 15px;
+    color: #fff;
+    padding: 10px;
+    font-size: 2vh;
+}
+.baris1,.baris2{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* padding: 5px; */
+    padding-left: 8px;
+}
+.logo-dompet{
+    text-align: center;
+    justify-content: center;
+}
+.logo-dompet img{
+    width: 30px;
+}
+
+.baris1 p{
+    width: 80%;
+}
+
+
+.menu-pendapatan {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* Align to the end (right) of the container */
+    margin-top: 5px;
+}
+
+.menu-box {
+    display: inline-block;
+    text-align: center;
+    padding-left: 5px;
+    /* padding-left: 10px; */
+}
+
+.menu-image {
+    margin: auto;
+    background-color: white;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20%;
+}
+
+.menu-image img {
+    max-width: 100%;
+    height: auto;
+}
+.menu-text {
+    margin-top: 5px;
+    font-size: 14px;
+    color:white;
+}
+
+.saldo{
+    margin: 0 5px;
+    font-size: 3vh;
+}
+/* toggle */
+.toggle{
+    width: 20%;
+    text-align: right;
+    justify-content: flex-end;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+/* ============================================ */
+.pesanan{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 2vh;
+    color: #000;
+}
+.head{
+    width: 100%;
+    background: #c9c9c9;
+    color: #56ab91;
+    font-weight: bold;
+    padding: 0 10px;
+}
+.content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+}
+.card{
+    width: 100%;
+    border: 1px solid #56ab91;
+    border-radius: 15px;
+    padding: 5px;
+}
+.paket{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.namapaket{
+    font-weight: bold;
+    color: black;
+    width: 65%;
+}
+.status{
+    width: 35%;
+    text-align: right;
+    color: #56ab91;
+}
+.waktu{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 1.5vh;
+}
+.tanggal{
+    width: 50%;
+}
+.ID{
+    width: 50%;
+    text-align: right;
+}
+/* =============FOOTER (NEW)============== */
+.footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width:100vw ;
+    height: 10vh;
+    /* background: #56ab91; */
+    justify-content: space-around;
+    align-items: center;
+}
+.footer a{
+    width: 12vh;
+    height: 8vh;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    font-size: 2vh;
+
+}
+.footer a img{
+    width: 3.5vh;
+    height: 3.5vh;
+}
+
+a.active p {
+    color: #34CBAA; /* Warna teks untuk elemen <p> aktif */
+    font-family: Poppins; /* Font family untuk elemen <p> aktif */
+}
+

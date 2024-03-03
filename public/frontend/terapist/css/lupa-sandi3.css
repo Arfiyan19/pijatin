@@ -1,0 +1,145 @@
+/* ============ TERAPIS LUPA SANDI 3 ============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background: rgb(255, 255, 255);
+}
+.header{
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4vh;
+    background: #fff;
+    text-align: center;
+}
+.backbtn{
+    width: 100vw;
+    justify-content: left;
+    align-items: center;
+
+}
+.header img{
+    width: 5vh;
+    height: 3vh;
+}
+.header h2{
+    font-size: 3vh;
+    margin: 5vh;
+}
+.header p{
+    font-size: 2.5vh;
+}
+.content{
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    padding: 4vh;
+    background: #fff;
+}
+form{
+    width: 100%;
+    height: 100%;
+}
+label{
+    width: 100%;
+    height:4vh ;
+    font-size: 2.5vh;
+}
+label span{
+    color: red;
+}
+.input-field{
+    width: 100%;
+    height: 5vh;
+    justify-content: center;
+    margin-bottom: 15px;
+
+}
+input{
+    width: 100%;
+    height: 5vh;
+    border: 2px solid #56ab91;
+    background: #fff;
+    padding-left: 10px;
+    border-radius: 25px;
+    font-size: 2.5vh;
+}
+.input-field img{
+    position: absolute;
+    right: 13%;
+    top: 44%;
+    width: 4vh;
+    height: 4vh;
+}
+.error{
+    color: red;
+}
+.daftar{
+    width: 100%;
+    height: 5vh;
+    text-align: center;
+    margin: 10vh 0;
+}
+.daftar button{
+    width:50vw ;
+    height: 5vh;
+    background: #56ab91;
+    color: #fff;
+    border-radius: 25px;
+    font-size: 2.5vh;
+}
+.daftar button:hover{
+    width:40vw ;
+    height: 5vh;
+    background: #fff;
+    color: #56ab91;
+    border: 2px solid #56ab91;
+    border-radius: 25px;
+}
+.popup{
+    width: 80vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    color: #000;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    justify-content: center;
+    border: 2px solid #56ab91;
+    border-radius: 15px;
+    visibility: hidden;
+}
+.open-popup{
+    visibility: visible;
+}
+.centang img{
+    width: 50px;
+    height: 50px;
+}
+.pesan a button{
+    width: 40%;
+    height: 3vh;
+    border-radius: 25px;
+    background: #56ab91;
+}

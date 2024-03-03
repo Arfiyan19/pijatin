@@ -1,0 +1,52 @@
+.txt-kirimUlasan {
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.56px;
+    margin-top: 62px;
+}
+
+.btn-kembali {
+    width: 145px;
+    padding: 10px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: white;
+    color: #56ab91;
+    text-decoration: none;
+    border: 1px solid var(--primary-primary-005, #56ab91);
+}
+
+.btn-kembali:hover {
+    background-color: white; /* Warna latar belakang saat dihover */
+    color: #56ab91; /* Warna teks saat dihover */
+}
+
+.btn-pesan {
+    width: 145px;
+    padding: 10px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: var(--primary-primary-005, #56ab91);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-pesan:hover {
+    background-color: #56ab91; /* Warna latar belakang saat dihover */
+    color: white; /* Warna teks saat dihover */
+}
+
+.container-tambah img {
+    padding-top: 22px;
+}

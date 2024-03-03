@@ -1,0 +1,132 @@
+/* ============ REGISTER THERAPIS ============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.container{
+    height: 100vh;
+    width: 100vw;
+}
+
+.container .header{
+    background: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+.container .header img,
+.container .header h3,
+.container .header p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.container .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+}
+
+/* =========== form =========== */
+
+.content form{
+    width: 90%;
+    font-size: 2vh;
+}
+.content form label{
+    color: #000;
+}
+span{color: #ff0000;}
+
+.input-field input:focus {
+    outline: 0;
+}
+.input-field img{
+    /* left: 145px;
+    bottom: 30px; */
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.form-input{
+    width: 100%;
+    height: 5vh;
+    border: 1px solid #56ab91;
+    border-radius: 25px;
+    padding: 0 15px;
+    font-size: 2vh;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.radio{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    font-size: 2vh;
+    margin-bottom: 15px;
+}
+#perempuan{
+    margin-left: 10px;
+}
+
+/* ======== FORM VALIDATION ======== */
+.input-field .success input {
+    border-color: #09c372;
+}
+
+.input-field .error input {
+    border-color: #ff3860;
+}
+.input-field .error {
+    justify-content: left;
+    text-align: left;
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+}
+
+/* =========== button daftar =========== */
+.daftar{
+    /* background: #ff0000; */
+    text-align: center;
+    align-items: center;
+}
+
+ button{
+    width: 30vw;
+    height: 5vh;
+    color: #fff;
+    background: #56AB91;
+    border-radius: 25px;
+    font-size: large;
+}
+
+/* =========== FOOTER =========== */
+.container .footer{
+    background: #fff;
+    height: 30vh;
+    text-align: center;
+}
+.container .footer a{
+    color: #56AB91;
+    padding: 5px;
+    border-radius: 5px;
+}
+.container .footer a:hover{
+    color: #ffffff;
+    background: #56AB91;
+
+}
+
+

@@ -1,0 +1,56 @@
+.txt-ubahJadwal h6 {
+    align-self: stretch;
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.56px;
+}
+
+.txt-ubahJadwal p {
+    align-self: stretch;
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.56px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.btn-simpan {
+    width: 145px;
+    padding: 10px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: var(--primary-primary-005, #56ab91);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-simpan:hover {
+    background-color: #56ab91; /* Warna latar belakang saat dihover */
+    color: white; /* Warna teks saat dihover */
+}
+
+.txt-simpanJadwal {
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.56px;
+}
+
+.container-tambah img {
+    margin-top: 35px;
+}

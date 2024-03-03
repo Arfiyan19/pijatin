@@ -1,0 +1,117 @@
+:root {
+    --green: #f2fef6;
+    --ijo: #56ab91;
+    --white: #e3f2fd;
+    --gray: #ffffff;
+    --black1: #222;
+    --tosca: #3fc1c0;
+    --tosca2: #0899ba;
+    --black2: #999;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.topbar {
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    background: #56ab91;
+    color: #fff;
+    align-items: center;
+}
+
+.topbar .backbtn {
+    margin: 17px;
+}
+
+.topbar p {
+    font-size: 2.5vh;
+    color: #fff;
+    align-items: center;
+    margin: 5px 10px;
+    font-weight: bold;
+}
+
+
+.topbar a i {
+    font-size: 3.5vh;
+    color: #fff;
+    align-items: center;
+    margin: 5px 10px;
+}
+
+.topbar p {
+    margin-left: -10px;
+}
+
+.container {
+    max-width: 860px;
+    height: 700px;
+    margin: 0 auto;
+    background-color: var(--gray);
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.containerform {
+    padding-top: 20px;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+form {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.pesanan {
+    font-size: 16px;
+    color: #036666;
+    font-weight: bold;
+    text-align: left;
+
+}
+
+.textdeskripsi {
+    font-size: 12px;
+    text-align: left;
+
+}
+
+.required::after {
+    content: ' *';
+    color: red;
+}
+
+input[type="url"],
+textarea {
+    border: 1px solid #BCB8B8;
+    font-size: 12px;
+    height: auto;
+    margin: 0;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 30px;
+    float: left;
+
+    border-radius: 10px;
+}
+
+.btn {
+    padding-top: 50px;
+}
+
+.btn .btn-laporkancustomer {
+    border-radius: 20px;
+    color: white;
+    border: 1px solid #56ab91;
+    width: 145px;
+    background-color: #56ab91;
+    height: 35px;
+}

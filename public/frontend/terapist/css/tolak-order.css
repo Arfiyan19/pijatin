@@ -1,0 +1,111 @@
+/* ============ TOLAK ORDERAN============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.topbar{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 10vh;
+    background: #7dd3b9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.topbar a,
+.topbar a img{
+width: 10vw;
+height: 10vw;
+align-items: center;
+
+}
+.head{
+    width:80vw;
+    margin-right: 10vw;
+    text-align: center;
+    align-items: center;
+    /* font-size: 2.5vh; */
+}
+.head h4{
+    font-size: 2.5vh;
+}
+.head p{
+    font-size: 2vh;
+}
+.content{
+    width: 100vw;
+    height: 60vh;
+    padding: 2vh;
+    margin-top: 10vh;
+    align-items: center;
+}
+.kenapa{
+    font-weight: bold;
+}
+.content form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:40vh;
+}
+.pilihan{
+    width: 100%;
+    height: 5vh;
+    align-items: center;
+    border-bottom: 1px solid #000 ;
+    margin: 7px 0;
+    font-size: 2.5vh;
+
+}
+.pilihan input{
+height: 3vh;
+width: 2.5vh;
+font-size: 2.5vh;
+margin: 10px;
+
+}
+#isian{
+    width: 60%;
+    height: 3vh;
+    border: 1px solid #000;
+}
+.content .lapor{
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+    /* background: #7dd3b9; */
+    text-align: center;
+    padding: 5vh;
+}
+.lapor button{
+    width: 50vw;
+    height: 5vh;
+    font-size: 3vh;
+    border-radius: 25px;
+    background: #56ab91;
+    color: #fff;
+}
+.lapor button:hover{
+    background: #fff;
+    color: #56ab91;
+    border: 1px solid #56ab91;
+}
+
+/* .pilihan input{
+    width: 5%;
+    border-radius: 25px;
+} */
+/* .content form #alasan{
+    width: 100%;
+    height: 20vh;
+    margin: 5px 0;
+    text-align: start;
+} */

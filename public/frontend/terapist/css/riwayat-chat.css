@@ -1,0 +1,108 @@
+/* ============ RIWAYAT CHAT ============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+
+}
+.topbar{
+    width: 100vw;
+    height: 7vh;
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    flex-direction: row;
+    background: #56ab91;
+    align-items: center;
+}
+.namacustomer{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+}
+.namacustomer img{
+    width: 35px;
+    height: 35px;
+    font-size: 3vh;
+    margin-right: 5px;
+}
+.namacustomer p{
+    color: #fff;
+    font-size: 2.5vh;
+}
+.chatbox{
+    margin-top: 8vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+
+}
+.pesan{
+    /* position: relative; */
+    display: flex;
+flex-direction: column;
+    width: 100%;
+    margin: 5px 0;
+    font-size: 2vh;
+
+}
+.pesan p{
+    max-width: fit-content;
+    background: #56ab91;
+    border-radius: 15px;
+    padding: 10px 10px;
+}
+.pesan span{
+    color: rgb(56, 56, 56);
+    font-size: 80%;
+}
+.pesanku{
+    align-items: flex-end;
+    text-align: right;
+}
+.footer{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 8vh;
+    position: fixed;
+    bottom: 0;
+    background: #ffffff;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+.footer input{
+    width: 80%;
+    height: 5vh;
+    border: 1px solid #56ab91;
+    border-radius: 25px;
+    padding: 0 10px;
+    font-size: 2vh;
+}
+.footer i{
+    width: 30px;
+    height: 30px;
+    color: #56ab91;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer button{
+    align-items: center;
+    justify-content: center;
+}

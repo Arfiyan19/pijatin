@@ -1,0 +1,85 @@
+:root {
+    --pr-color: #469d89;
+}
+
+@media (max-width: 575.98px) {
+    .tagline-hero h1 {
+        color: #fff;
+        text-align: center;
+        text-shadow: 0px 2.9846153259277344px 2.9846153259277344px
+            rgba(0, 0, 0, 0.25);
+        font-family: Cambria;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-top: 135.75px;
+    }
+
+    .tagline-hero p {
+        color: #fffefe;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 13.333px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        letter-spacing: -0.533px;
+        padding: 0 25px;
+    }
+
+    .tagline-pijat h1 {
+        color: #34cbaa;
+        text-align: center;
+        font-family: Caudex;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 1.5px;
+    }
+
+    /* Tentang Kami */
+    .tentang-kami-img {
+        width: 240px;
+        height: 294.698px;
+        flex-shrink: 0;
+    }
+
+    .tagline-pijat p {
+        color: #626262;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.64px;
+    }
+
+    .img-trapis {
+        width: 1300px;
+    }
+}
+@media (max-width: 767.98px) {
+}
+@media (max-width: 991.98px) {
+}
+@media (max-width: 1199.98px) {
+}
+
+@media (max-width: 768px) {
+    /* .card-layanan {
+        margin-top: 30px;
+        width: 340px;
+        height: 400px;
+    }
+
+    .img-layanan {
+        width: 320px;
+    } */
+
+    .card-trapis {
+        width: 340px;
+    }
+}

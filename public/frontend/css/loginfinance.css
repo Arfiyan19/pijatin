@@ -1,0 +1,151 @@
+.login-child {
+    top: 362.11px;
+    left: -224px;
+    border-radius: var(--br-31xl);
+    background-color: var(--secondary-secondary-007);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    width: 788.57px;
+    height: 534.59px;
+  }
+  .login-child,
+  .login-inner,
+  .login-item {
+    position: absolute;
+    transform: rotate(-27.34deg);
+    transform-origin: 0 0;
+  }
+  .login-item {
+    top: 302.62px;
+    left: -256px;
+    border: 8px dashed var(--neu2-neu2-009);
+    box-sizing: border-box;
+    width: 714.93px;
+    height: 519.28px;
+  }
+  .login-inner {
+    top: 285.14px;
+    left: -278px;
+    border-radius: var(--br-31xl);
+    background-color: var(--secondary-secondary-008);
+    box-shadow: 0 4px 100px rgba(0, 0, 0, 0.25);
+    width: 677.57px;
+    height: 501.07px;
+  }
+  .tim-finance {
+    position: absolute;
+    top: 109px;
+    left: 98px;
+    letter-spacing: -0.04em;
+    font-weight: 600;
+    color: var(--neu2-neu2-009);
+  }
+  .computer-loginrafiki-icon {
+    position: absolute;
+    height: 55.48%;
+    width: 37.28%;
+    top: 14.15%;
+    right: 57.44%;
+    bottom: 30.37%;
+    left: 5.28%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .logo-70-icon1,
+  .logo-70-icon2 {
+    position: absolute;
+    top: 33px;
+    left: 37px;
+    width: 59.16px;
+    height: 30px;
+    overflow: hidden;
+  }
+  .logo-70-icon2 {
+    top: 141px;
+    left: 1075px;
+  }
+  .span3 {
+    color: var(--color-crimson);
+  }
+  .username3 {
+    position: relative;
+    letter-spacing: -0.04em;
+  }
+  .username-item {
+    position: relative;
+    border-radius: var(--br-xl);
+    background-color: var(--neu2-neu2-009);
+    border: 1.5px solid var(--secondary-secondary-009);
+    box-sizing: border-box;
+    width: 300px;
+    height: 40px;
+  }
+  .username2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-8xs);
+  }
+  .span4 {
+    color: var(--color-dimgray);
+  }
+  .kata-sandi1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-9xs);
+  }
+  .masuk2,
+  .username-parent {
+    display: flex;
+    align-items: center;
+  }
+  .masuk2 {
+    border-radius: var(--br-xl);
+    background-color: var(--secondary-secondary-009);
+    width: 141px;
+    height: 35px;
+    flex-direction: row;
+    padding: var(--padding-3xs);
+    box-sizing: border-box;
+    justify-content: center;
+    font-size: var(--button-16px-button-2-size);
+    color: var(--neu2-neu2-009);
+  }
+  .username-parent {
+    position: absolute;
+    top: 228px;
+    left: 922px;
+    border-radius: 30px;
+    background-color: var(--neu2-neu2-009);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--secondary-secondary-009);
+    overflow: hidden;
+    flex-direction: column;
+    padding: 36px 33px 38px;
+    justify-content: flex-start;
+    gap: 33px;
+    font-size: var(--font-size-3xs);
+  }
+  .semangat-kerja-dengan {
+    position: absolute;
+    top: 193px;
+    left: 978px;
+    font-size: var(--heading-14px-h12-size);
+    letter-spacing: -0.04em;
+    font-weight: 600;
+  }
+  .login {
+    position: relative;
+    background-color: var(--neu2-neu2-009);
+    width: 100%;
+    height: 721px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--heading-24px-h8-size);
+    color: var(--color-black);
+    font-family: var(--button-16px-button-2);
+  }
+  

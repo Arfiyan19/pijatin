@@ -1,0 +1,697 @@
+/* ============ Profile therapist ============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin: 0;padding: 0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+.topbar{
+    width: 100vw;
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    background: #56ab91;
+    color: #fff;
+    align-items: center;
+}
+.topbar p,
+.topbar a i{
+    font-size: 2.5vh;
+    color: #fff;
+    align-items: center;
+}
+.backbtn a i{color: #fff;}
+.idbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.bio h4{
+    font-weight: bold;
+}
+.content-frame{
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+        justify-content: center;
+    align-items: center;
+}
+.transaksi-terakhir {
+    font-family: 'Poppins', sans-serif;
+    /* background-color: black; */
+    border-radius: 10px; /* Sudut bulat */
+    margin: 20px 10px;
+    margin-bottom: 20px; /* Jarak antara elemen */
+    height: 100px;
+}
+.transaksi-terakhir-title{
+    font-size: 14px;
+    font-weight: bold;
+    /* color: white; */
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.metode-topup {
+    font-family: 'Poppins', sans-serif;
+    /* background-color: black; */
+    border-radius: 10px; /* Sudut bulat */
+    margin: 20px 10px;
+    margin-bottom: 20px; /* Jarak antara elemen */
+}
+
+.metode-topup-title {
+    font-size: 14px;
+    font-weight: bold;
+    /* color: white; */
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.metode-topup-content {
+    font-size: 14px;
+    font-weight: bold;
+    /* color: white; */
+    display: flex;
+    align-items: center; /* Mengatur konten ke tengah */
+    justify-content: left; /* Ruang di antara elemen-elemen */
+    padding: 10px; /* Padding umum */
+}
+
+
+.logo-bank-kolom {
+    display: flex;
+    width: 40%;
+    flex-direction: column; /* Kolom logo bank ditata secara vertikal */
+    padding: 10px; /* Padding umum */
+}
+
+.logo-bank img {
+    width: 45px; /* Sesuaikan ukuran logo bank */
+    text-align: center; /* Tengahkan logo bank */
+    margin: auto;
+}
+
+.radio-buttons-kolom {
+    display: flex;
+    flex-direction: column; /* Radio buttons ditata secara vertikal */
+    padding: 10px; /* Padding untuk radio buttons */
+}
+.nama-bank-kolom {
+    display: flex;
+    flex-direction: column; /* Kolom nama bank ditata secara vertikal */
+    padding: 10px; /* Padding untuk kolom nama bank */
+    width: 60%;
+}
+.nama-bank-kolom p {
+    font-size: 18px; /* Ukuran teks */
+    font-weight: bold; /* Teks tebal */
+    margin-bottom: 10px; /* Atur jarak antara nama bank dan radio button */
+}
+
+.radio-button {
+    margin-bottom: 5px; /* Atur jarak antara radio button dan teks */
+}
+
+.radio-button input {
+    margin-right: 5px; /* Atur jarak antara radio button dan teks */
+}
+.submit{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submitTopup2{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submitTopup3{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.button-rekening{
+    width: 50vw;
+    height: 4vh;
+    background: #fff;
+    color: #56ab91;
+    border-radius: 25px;
+    border: 1px solid #56ab91;
+    text-align: center;
+    /* //ubah ke cursor  */
+    cursor: pointer;
+    
+}
+button:hover{
+    background: #56ab91;
+    color: #fff;
+}
+
+/* Styles for the frame-bank container */
+.frame-bank {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.frame-bank-spanduk {
+    /* background-color: #3498db; Blue background color */
+    background-image: url("/frontend/terapist/img/frame-topup.png");
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    /* size flex  */
+    display: flex;
+    width: 231px;
+    height: 170px;
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.frame-bank-spanduk-title {
+    color: black; /* White text color */
+}
+
+.frame-bank-spanduk-title-row1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.atasnama{
+    font-size: 14px;
+    font-weight: bold;
+    /* color: white; */
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.logokecil {
+    padding: 10px;
+    width: 50%;
+    /* margin-top: 5px; */
+}
+
+.logokecil img {
+    width: 50px; /* Adjust the max-width of the logo as needed */
+    height: 50px; /* Adjust the max-height of the logo as needed */
+    display: block;
+}
+
+.frame-bank-spanduk-title-row2 {
+    /* margin-top: 10px; */
+    padding: 10px;
+    text-align: left;
+
+}
+/* frame-bank-spanduk-title-row2 nomorrekening */
+.frame-bank-spanduk-title-row2 p {
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+.content a{
+    width: 100%;
+}
+.menu{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+}
+  
+  .toggle {
+    margin-left: auto; /* Untuk meletakkan toggle di sebelah kanan */
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Style the round slider */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+
+.menu .frame-image{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background: #56ab91;
+    margin-right: 10px;
+}
+
+.menu img{
+    width: 5vh;
+    height: 5vh;
+}
+.menu #alert{
+width: 4vh;
+height: 4vh;
+}
+.menu label{
+    /* width: 75vw; */
+    font-size: 2.5vh;
+    padding-left: 15px;
+    color: #000;
+}
+.menu i{ color: #000;}
+/* =============FOOTER (NEW)============== */
+.footer{
+    position: fixed;
+    /* position: relative; */
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width:100vw ;
+    height: 10vh;
+    /* background: #56ab91; */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer a{
+    width: 12vh;
+    height: 8vh;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    font-size: 2vh;
+
+}
+.footer a img{
+    width: 3.5vh;
+    height: 3.5vh;
+}
+/* //footer -topup2 */
+.footer-topup2{
+    position: relative;
+    /* position: relative; */
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width:100vw ;
+    height: 10vh;
+    /* background: #56ab91; */
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.footer-topup2 a{
+    width: 12vh;
+    height: 8vh;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    font-size: 2vh;
+
+}
+.footer-topup2 a img{
+    width: 3.5vh;
+    height: 3.5vh;
+}
+
+
+/* ///footer-topup3 */
+.footer-topup3{
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    width:100vw ;
+    height: 10vh;
+    /* background: #56ab91; */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-topup3 a{
+    width: 12vh;
+    height: 8vh;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    font-size: 2vh;
+
+}
+.footer-topup3 a img{
+    width: 3.5vh;
+    height: 3.5vh;
+}
+/* //topup2  */
+.tutor-topup{
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    height: 350px; 
+    /* overflow-y: auto;  */
+  }
+  
+  .title {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.56px;
+  }
+  
+  .detail {
+    text-align: left;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: normal;
+    letter-spacing: -0.56px;
+    margin-top: 10px; /* Atur jarak antara title dan detail jika diperlukan */
+}
+.detail-item {
+    display: flex; /* Membuat baris */
+    align-items: center; /* Memusatkan elemen secara vertikal */
+    margin-bottom: 10px; /* Atur jarak antara baris jika diperlukan */
+}
+
+.circle {
+    width: 12%; 
+    background-color: #56ab91; /* Warna latar belakang hijau */
+    border-radius: 50%; /* Membuat lingkaran */
+    text-align: center; /* Memusatkan teks di dalam lingkaran */
+    padding: 10px; /* Padding untuk memberi ruang di dalam lingkaran */
+    margin-right: 10px; /* Atur jarak antara lingkaran dan teks */
+}
+
+.circle span {
+    color: #fff; /* Warna teks putih di dalam lingkaran */
+    font-weight: bold;
+    font-size: 14px; /* Sesuaikan ukuran teks di dalam lingkaran */
+}
+
+.circleText {
+    flex: 1; /* Menggunakan sisa lebar yang tersedia */
+    font-size: 14px; /* Sesuaikan ukuran teks pada kolom 2 */
+    color: #333; /* Warna teks */
+}
+
+.detail-item p {
+    padding-left: 10px; /* Adjust the spacing between the circle and the text */
+    color: #333; /* Adjust the text color */
+}
+ 
+/* //ytopup3  */
+.frame-tanda-bukti-1, .frame-tanda-bukti-2, .frame-tanda-bukti-3 {
+    /* border: 1px solid #ccc; */
+    padding-left: 20px;
+    padding-right: 20px;
+    /* padding-bottom: 10px; */
+    margin: 10px;
+}
+
+.frame-tanda-bukti-1 p {
+    text-align: left;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Poppins;
+}
+/* CSS for frame-tanda-bukti-2 */
+.frame-tanda-bukti-2 {
+    height: 330px;
+    overflow-y: auto;
+    /* border: 1px solid #ccc; Add border for visual distinction */
+    padding: 20px; /* Add padding for space inside the frame */
+}
+
+/* CSS for frame-tanda-bukti-2-title */
+.frame-tanda-bukti-2-title {
+    text-align: center;
+    /* font-weight: bold; */
+    font-size: 14px;
+    font-family: Poppins;
+}
+
+/* CSS for frame-tanda-bukti-2-content */
+.frame-tanda-bukti-2-content {
+    height: 240px; /* Set the height of the content box */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    /* //kursor  */
+    cursor: pointer;
+}
+/* //kursor */
+
+/* Styling for the box in the center */
+.center-box {
+    width: 100px;
+    height: 95px;
+    border: 2px dashed #56ab91; /* Dashed border with green color */
+    text-align: center;
+    line-height: 100px; /* Vertically center the text inside the box */
+    margin-bottom: 40px; /* Add margin to separate the box from the text below */
+    margin-top: 50px;
+}
+
+/* Styling for the image inside the center box */
+.center-box img {
+    width: 90px;
+    height: 90px;
+}
+
+/* Styling for the text below the center box */
+.center-text {
+    font-size: 14px;
+    color: #A9A9A9;
+    text-align: center;
+}
+.center-text b{
+    font-size: 14px;
+    color: black;
+    text-align: center;
+}
+.center-text p{
+    font-size: 14px;
+    color: black;
+    text-align: center;
+}
+
+.upload-section {
+    text-align: center;
+}
+
+.frame-tanda-bukti-3-title{
+    text-align: center;
+    font-size: 14px;
+    font-family: Poppins;
+}
+.frame-tanda-bukti-3-title p{
+    text-align: center;
+    font-size: 14px;
+    font-family: Poppins;
+}
+.frame-tanda-bukti-3-contoh{
+    text-align: left;
+    font-size: 14px;
+    font-family: Poppins;
+    padding-top: 20px;
+}
+
+/* CSS for frame-tanda-bukti-4 */
+/* CSS for frame-tanda-bukti-4 */
+.frame-tanda-bukti-4 {
+    border: 1px solid #ccc;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    margin: 10px;
+    height: auto; /* Set the height to auto for dynamic adjustment based on content */
+}
+
+/* CSS for frame-tanda-bukti-4-kotak1 and frame-tanda-bukti-4-kotak2 */
+.frame-tanda-bukti-4-kotak {
+    display: flex;
+}
+
+.frame-tanda-bukti-4-kotak1,
+.frame-tanda-bukti-4-kotak2 {
+    flex: 1;
+    height: auto; /* Set the height to auto */
+    margin-right: 10px; /* Adjust margin-right to create a gap between kotak1 and kotak2 */
+}
+
+
+/* Optional styling for frame-tanda-bukti-4-kotak1 and frame-tanda-bukti-4-kotak2 */
+
+
+/* CSS for frame-tanda-bukti-4-kotak1 and frame-tanda-bukti-4-kotak2 */
+.frame-tanda-bukti-4-kotak1 img {
+    width: 100%; /* Set the width of the image to 100% of its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Make the image a block element */
+    margin-left: auto; /* Move the image to the right within frame-tanda-bukti-4-kotak1 */
+    padding-top: 20px;
+}
+
+.frame-tanda-bukti-4-kotak2 img {
+    width: 100%; /* Set the width of the image to 100% of its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Make the image a block element */
+    margin-right: auto; /* Move the image to the right within frame-tanda-bukti-4-kotak1 */
+    padding-top: 20px;
+}
+
+/* Optional styling for frame-tanda-bukti-4-kotak1 and frame-tanda-bukti-4-kotak2 */
+
+/* CSS for frame-tanda-bukti-4-list */
+.frame-tanda-bukti-4-list {
+    margin-top: 10px; /* Atur margin atas jika diperlukan */
+}
+
+.frame-tanda-bukti-4-list li {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px; /* Optional margin between list items */
+}
+/* //splash screen  */
+.splash-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 9999;
+}
+
+.splash-logo {
+    width: 30px;
+    height: 20px;
+    margin-bottom: 10px;
+    /* Add other logo styles if needed */
+}
+
+.splash-text {
+    margin-bottom: 10px;
+    font-weight: bold;
+    /* //20px */
+    font-size: 16px;
+    color: #036666;
+    /* Add other text styles if needed */
+}
+
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #56ab91;
+    border-radius: 50%;
+    margin: 0 5px;
+    opacity: 0.7;
+    animation: loadingAnimation 1s linear infinite;
+}
+
+@keyframes loadingAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0.7;
+    }
+}

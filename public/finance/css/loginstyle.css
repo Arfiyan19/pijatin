@@ -1,0 +1,182 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: #56AB91;
+  --white: #E3F2FD;
+  --gray: #FFFFFF;
+  --black1: #222;
+  --tosca: #3FC1C0;
+  --tosca2: #04A6C2;
+  --tosca3: #20BAC5;
+  --black2: #999;
+  --black3: #BCB8B8;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--gray);
+    transition: 0.5s;
+  }
+
+.frame {
+    position: absolute;
+    width: 677.57px;
+    z-index: 1;
+    height: 501.07px;
+    border-radius: 50px;
+    rotate: -27.34deg;
+    transform: translate(-278px, -25px);
+    background-color: var(--tosca3);
+}
+
+.frame2 {
+    position: absolute;
+    z-index: 0;
+    width: 788.57px;
+    height: 534.59px;
+    border-radius: 50px;
+    rotate: -27.34deg;
+    transform: translate(-224px, 60px);
+    background-color: var(--tosca2);
+}
+
+.rectangle {
+    position: absolute;
+    z-index: 0;
+    width: 788.57px;
+    height: 534.59px;
+    rotate: -27.34deg;
+    transform: translate(-320px, -70px);
+
+}
+
+.rectangle img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.bg {
+    position: absolute;
+    z-index: 1;
+    width: 536.83px;
+    height: 400px;
+    transform: translate(20px, 102px);
+}
+
+.icon {
+    position: absolute;
+    transform: translate(25px, 25px);
+}
+
+.icon img {
+    height: 30px;
+    width: 59px;
+}
+
+.tit {
+    position: absolute;
+    z-index: 1;
+    transform: translate(90px, 100px);
+    color: var(--gray);
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.login-form {
+    position: relative;
+    width: 50%;
+    padding: 140px 193px 140px 193px;
+    margin-left: 50%;
+    height: 708.59px;
+}
+
+.login-form .logo{
+    width: 100%;
+    height: 13%;
+    padding-left: 40%;
+    padding-right: 40%;
+}
+
+.login-form .logo img{
+    width: 59.16px;
+    height: 30px;
+}
+
+.login-form .card {
+    z-index: 2;
+    width: 366px;
+    height: 294px;
+    border-radius: 30px;
+    padding: 30px;
+    border: 2px solid #3FC1C0;
+}
+
+.login-form .card .username,
+.login-form .card .pass {
+    width: 100%;
+    height: 90px;
+}
+
+.login-form .card .username label,
+.login-form .card .pass label {
+    width: 100%;
+    height: 10px;
+    font-size: small;
+}
+
+.login-form .card .username input,
+.login-form .card .pass input {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1.5px solid #3FC1C0;
+    margin-top: 6px;
+}
+
+
+.login-form .text {
+    width: 100%;
+    height: 7%;
+    text-align: center;
+    font-weight: 600;
+    font-size: medium;
+}
+
+.login-form .card .btn {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+}
+
+.login-form .card .btn button {
+    width: 45%;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    background-color: #3FC1C0;
+    color: var(--gray);
+    align-items: center;
+    cursor: pointer;
+}

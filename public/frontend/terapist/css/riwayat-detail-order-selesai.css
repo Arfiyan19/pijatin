@@ -1,0 +1,188 @@
+:root {
+    --green: #f2fef6;
+    --ijo: #56ab91;
+    --white: #e3f2fd;
+    --gray: #ffffff;
+    --black1: #222;
+    --tosca: #3fc1c0;
+    --tosca2: #0899ba;
+    --black2: #999;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.topbar {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    background: #56ab91;
+    color: #fff;
+    align-items: center;
+}
+
+.topbar .backbtn {
+    margin: 17px;
+}
+
+.topbar p {
+    font-size: 2.5vh;
+    color: #fff;
+    align-items: center;
+    margin: 5px 10px;
+    font-weight: bold;
+}
+
+.topbar a i {
+    font-size: 3.5vh;
+    color: #fff;
+    align-items: center;
+    margin: 5px 10px;
+}
+
+.topbar p {
+    margin-left: -10px;
+}
+
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    background-color: var(--gray);
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.identitas {
+    max-width: 860px;
+    background-color: #358F80;
+    height: 170px;
+}
+
+
+
+/* .tableidentitas {
+    margin-top: 40px;
+    max-width: 860px;
+    margin: 0 auto;
+} */
+
+
+.tableidentitas {
+    margin: 0 auto;
+}
+
+.detailpesan {
+    z-index: 5;
+    background-color: #ffff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    max-width: 550px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid #BCB8B8;
+    position: relative;
+    top: -50px;
+}
+
+
+.imglogo {
+    height: 20px;
+    float: left;
+    margin: 10px 30px;
+    margin-top: 20px;
+}
+
+.detailpesan .jdldes {
+    text-align: left;
+    padding-top: 50px;
+    margin-left: 30px;
+}
+
+.jdldes .judul {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.jdldes .deskripsi {
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.table1 {
+    margin: 10px 30px;
+}
+
+.table1,
+th {
+    font-size: 14px;
+
+}
+
+.table1,
+td {
+    font-size: 12px;
+    padding: 2px;
+}
+
+.ulasan {
+    margin-top: -30px;
+    max-width: 300px;
+    margin-left: 70px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.navbarselesai {
+    max-width: 300px;
+    margin: 0 auto;
+
+}
+
+.navbarselesai p {
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 30px;
+}
+
+.halamanulasan {
+    z-index: 5;
+    background-color: #ffff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    max-width: 550px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid #BCB8B8;
+}
+
+.table2 {
+    margin: 5px 20px;
+}
+
+.imgprofileuser {
+    margin: 0 auto;
+}
+
+.checked {
+    color: orange;
+}
+
+@media (max-width: 595px) {
+    .topbar p {
+        /* margin-left: -10px; */
+        font-size: 16px;
+    }
+
+
+}
+
+@media (max-width: 560px) {
+
+    .tableidentitas {
+        margin: 0 auto;
+        margin: 15px;
+    }
+}
