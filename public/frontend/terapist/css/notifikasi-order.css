@@ -1,0 +1,244 @@
+/* ============ PROFILE : ALAMAT BARU ============ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin: 0;padding: 0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    
+}
+.topbar{
+    width: 100%;
+    height: 7vh;
+    background: #56ab91;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.topbar p,
+.topbar a i{
+    font-size: 2.5vh;
+    color: #fff;
+    align-items: center;
+}
+.content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    font-size: 2vh;
+    color: #000;
+}
+.title{
+    font-weight: bold;
+    padding-left: 10px;
+    font-size: 2vh;
+padding-bottom: 10px;
+
+}
+/* <div class="row-title">
+                <div class="kolom-kiri">ID PEMESANAN</div>
+                <div class="kolom-kanan">ID PEMESANAN</div>
+            </div> */
+.row-title{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid #56ab91; */
+    /* border-radius: 15px; */
+    /* padding: 10px; */
+    padding-right: 10px;
+padding-bottom: 10px;
+padding-left: 10px;
+}
+.row-title .kolom-kiri{
+    /* font-weight: bold; */
+}
+.row-title .kolom-kanan{
+    /* font-weight: bold; */
+}
+.content .cari{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #56ab91;
+    border-radius: 15px;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.manual label{
+    margin: 5px;
+    font-weight: bold;
+
+
+}
+.manual{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+
+}
+textarea{
+    resize: none;
+    border-radius: 15px;
+    border: 1px solid #56ab91;
+    padding: 10px;
+}
+.tombol{
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+.tombol button{
+    width: 35vw;
+    height: 5vh;
+    background: #fff;
+    border-radius: 25px;
+    border: 1px solid #56ab91;
+    color: #56ab91;
+    margin: 10px;
+    font-size: 2vh;
+}
+.tombol button:hover{
+    background: #56ab91;
+    color: #fff;
+}
+
+.popup {
+    display: none; /* sembunyikan modal secara default */
+    position: fixed; /* posisi tetap */
+    /* z-index: 1; tumpukan modal di atas elemen lain */
+    /* overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);  */
+
+    width: 60vw;
+    /* height: 20vh; */
+    /* display: flex; */
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    color: #000;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    justify-content: center;
+    border: 2px solid #56ab91;
+    border-radius: 15px;
+}
+.popup .headpop{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #b9e4c7;
+    font-size: 2.5vh;
+    border-radius: 15px 15px 0 0;
+}
+.popup .headpop p{
+    font-size: 1.5vh;
+}
+.popup .content{
+    /* width: 100vw; */
+    height: fit-content;
+    padding: 10px;
+    font-size: 2.5vh;
+    border-radius: 0 0 15px 15px;
+}
+.popup .content button{
+    width: 30vw;
+    height: 4vh;
+    border: 2px solid #56AB91;
+    border-radius: 25px;
+    margin: 10px;
+    background: rgb(255, 255, 255);
+}
+/* .kenapa{ */
+    .kenapa{
+        font-weight: bold;
+        align-items: center;
+        border-bottom: 1px solid #757575;
+    }
+    .pilihan{
+        width: 100%;
+        height: 5vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-bottom: 1px solid #000 ;
+        margin: 7px 0;
+    }
+    .pilihan input{
+        height: 3vh;
+        width: 2.5vh;
+        cursor: pointer;
+
+        margin: 10px 10px 10px 0;
+        background-color: #56ab91;
+        padding-left: 10px;
+    
+    }
+
+.lapor{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+.lapor button{
+    width: 35vw;
+    height: 5vh;
+    background: #fff;
+    border-radius: 25px;
+    border: 1px solid #56ab91;
+    color: #56ab91;
+    margin: 10px;
+    font-size: 2vh;
+    cursor: pointer;
+}
+.lapor button:hover{
+    background: #56ab91;
+    color: #fff;
+}
+.btn-lokasi {
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #56ab91;
+    color: #56ab91;
+    /* margin: 10px; */
+    font-size: 2vh;
+    padding: 2px 8px; /* Ubah angka sesuai dengan kebutuhan Anda */
+}
+
+/* //hover */
+.btn-lokasi:hover {
+    background: #56ab91;
+    color: #fff;
+}
+

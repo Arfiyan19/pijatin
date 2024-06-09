@@ -125,22 +125,39 @@
                     <i class="material-icons">chevron_right</i>
                 </div>
             </a>
-            <a href="{{ route('terapis.rekening', $data->user_id) }}">
+            <!-- //layanan   -->
+            <a href="{{ route('terapis.layanan', $data->user_id) }}">
+                <div class="menu">
+                    <img src="{{ asset('frontend/terapist/img/profile_pengaturan.png') }}" alt="">
+                    <label for="lokasi">Layanan</label>
+                    <i class="material-icons">chevron_right</i>
+                </div>
+            </a>
+            <!-- //keluar  -->
+            <a href="">
+                <div class="menu">
+                    <img src="{{ asset('frontend/terapist/img/keluar.png') }}" alt="">
+                    <label for="pengaturan">Keluar</label>
+                    <i class="material-icons">chevron_right</i>
+                </div>
+            </a>
+
+            <!-- <a href="{{ route('terapis.rekening', $data->user_id) }}">
                 <div class="menu">
                     <img src="{{ asset('frontend/terapist/img/profile_rekening.png') }}" alt="">
                     <label for="lokasi">Rekening Therapist</label>
                     <img id="alert" src="{{ asset('frontend/terapist/img/profile_alert.png') }}" alt="">
                     <i class="material-icons">chevron_right</i>
                 </div>
-            </a>
+            </a> -->
 
-            <a href="{{ route('terapis.pengaturan', $data->user_id) }}">
+            <!-- <a href="{{ route('terapis.pengaturan', $data->user_id) }}">
                 <div class="menu">
                     <img src="{{ asset('frontend/terapist/img/profile_pengaturan.png') }}" alt="">
                     <label for="pengaturan">Pengaturan</label>
                     <i class="material-icons">chevron_right</i>
                 </div>
-            </a>
+            </a> -->
         </div>
         @endif
 
@@ -173,9 +190,9 @@
                 <img src="{{ asset('frontend/terapist/img/riwayat.png') }}" alt="">
                 <p>Riwayat</p>
             </a>
-            <a href="{{ route('terapis.pendapatan') }}" class="{{ request()->is('terapis/pendapatan') ? 'active' : '' }}">
+            <a href="{{ route('terapis.pemesanan') }}" class="{{ request()->is('terapis/terapis-pemesanan') ? 'active' : '' }}">
                 <img src="{{ asset('frontend/terapist/img/pendapatan.png') }}" alt="">
-                <p>Pendapatan</p>
+                <p>Pesanan</p>
             </a>
             <a href="{{ route('terapis-profile.index') }}" class="{{ request()->is('terapis/terapis-profile') ? 'active' : '' }}">
                 <img src="{{ asset('frontend/terapist/img/akun-on.png') }}" alt="">

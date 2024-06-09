@@ -22,6 +22,7 @@
     <div class="container">
         <div class="topbar">
             <div class="logo"><img src="{{ asset('frontend/assets/image/logo-70.png') }} " alt=""></div>
+            @if (auth()->check() == 0)
             <div class="logokanan">
                 <a href="http://127.0.0.1:8000/terapis/profile">
                     <div class="user">
@@ -35,6 +36,23 @@
 
                 </a>
             </div>
+            @elseif(auth()->check() == 1)
+            <div class="logokanan">
+                <a href="{{ route('terapis-profile.index') }}">
+                    <div class="user">
+                        <img src="{{ asset('frontend/terapist/img/ppcustomer2.png') }}" alt="">
+                    </div>
+                </a>
+                <a href="{{ url('terapis/notifikasi') }}">
+                    <div class="lonceng">
+                        <img src="{{ asset('frontend/terapist/img/lonceng.png') }}" alt="">
+                    </div>
+
+                </a>
+            </div>
+            @endif
+
+
             @if (session('success'))
             <div class="text-danger" id="success" hidden>{{ session('success') }}</div>
             @endif
@@ -72,14 +90,12 @@
                     </div>
                     @if (auth()->check() == false)
                     <div class="saldo"> Rp-</div>
-                    @elseif(auth()->check() == true && auth()->user()->role == 'terapis' && $data->saldo == null)
-                    <div class="saldo"> Rp-</div>
-                    @elseif(auth()->check() == true && auth()->user()->role == 'terapis' && $data->saldo != null)
-                    <div class="saldo"> Rp. {{ number_format($data->saldo->saldo, 0, ',', '.') }}</div>
+                    @elseif(auth()->check() == true)
+                    <div class="saldo">{{ "Rp. " . number_format($total, 2, ',', '.') }}</div>
                     @endif
                 </div>
                 <div class="menu-pendapatan">
-                    <div class="menu-box">
+                    <!-- <div class="menu-box">
                         <a href="javascript:void(0)" onclick="mytopup()" class="topup">
                             <div class="menu-image">
                                 <img src="{{ asset('frontend/terapist/img/add.png') }}" alt="">
@@ -88,9 +104,8 @@
                                 Isi saldo
                             </div>
                         </a>
-                    </div>
-                    <!-- //menu2 -->
-                    <div class="menu-box">
+                    </div> -->
+                    <!-- <div class="menu-box">
                         <a href="javascript:void(0)" onclick="tariksaldo()">
                             <div class="menu-image">
                                 <img src="{{ asset('frontend/terapist/img/group.png') }}" alt="">
@@ -99,9 +114,8 @@
                                 Tarik Saldo
                             </div>
                         </a>
-                    </div>
-                    <!-- menu3 -->
-                    <div class="menu-box">
+                    </div> -->
+                    <!-- <div class="menu-box">
                         <a href="javascript:void(0)" onclick="lainnya()">
                             <div class="menu-image">
                                 <img src="{{ asset('frontend/terapist/img/lainnya.png') }}" alt="">
@@ -110,7 +124,7 @@
                                 Lainnya
                             </div>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
 
 
@@ -178,9 +192,13 @@
                 <img src="{{ asset('frontend/terapist/img/riwayat.png') }}" alt="">
                 <p>Riwayat</p>
             </a>
-            <a href="{{ route('terapis.pendapatan') }}" class="{{ request()->is('terapis/pendapatan') ? 'active' : '' }}">
+            <!-- <a href="{{ route('terapis.pendapatan') }}" class="{{ request()->is('terapis/terapis-pemesanan') ? 'active' : '' }}">
                 <img src="{{ asset('frontend/terapist/img/pendapatan.png') }}" alt="">
-                <p>Pendapatan</p>
+                <p>Pesanan</p>
+            </a> -->
+            <a href="{{ route('terapis.pemesanan') }}" class="{{ request()->is('terapis/terapis-pemesanan') ? 'active' : '' }}">
+                <img src="{{ asset('frontend/terapist/img/pendapatan.png') }}" alt="">
+                <p>Pesanan</p>
             </a>
             <a href="{{ route('terapis-profile.index') }}" class="{{ request()->is('terapis/profile') ? 'active' : '' }}">
                 <img src="{{ asset('frontend/terapist/img/akun.png') }}" alt="">

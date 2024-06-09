@@ -48,7 +48,6 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Customers::class, 'user_id', 'id');
     }
-    //superadmin
     public function superadmin()
     {
         return $this->hasOne(SuperAdmin::class, 'user_id', 'id');
@@ -88,8 +87,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->HasMany(Bank::class, 'user_id', 'id');
     }
-    
-     // relasi bank account
+
+    // relasi bank account
     public function bankAccount()
     {
         return $this->hasOne(BankAccount::class, 'user_id', 'id');

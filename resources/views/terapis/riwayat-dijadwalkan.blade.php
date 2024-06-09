@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="{{ asset('frontend/terapist/css/riwayat-dijadwalkan.css') }}">
     <!-- ======= logo tittle bar ====== -->
     <link rel="icon" href="{{ asset('frontend/assets/image/logo-70.png') }} ">
-
 </head>
 
 <body>
@@ -18,40 +17,57 @@
         <div class="topbar">
             <a href="{{ url('terapis/beranda/notifikasi-order') }}">
                 <img src="{{ asset('frontend/terapist/img/back.png') }}" alt="">
-
             </a>
             <div class="head">
                 <h4>Pekerjaan</h4>
             </div>
         </div>
-
         <div class="content">
             <div class="tab">
-                <a href="javascript:void(0)" onclick="order(event, 'dijadwalkan');">
-                    <div class="tablink bottombar">dijadwalkan</div>
+                <a href="#" class="active">
+                    <div class="tablink bottombar active">dijadwalkan</div>
                 </a>
-                <a href="javascript:void(0)" onclick="order(event, 'selesai');">
+                <a href="{{ route('terapis.riwayat-selesai') }}">
                     <div class="tablink bottombar">selesai</div>
                 </a>
-                <a href="javascript:void(0)" onclick="order(event, 'tolak');">
+                <a href="{{ route('terapis.riwayat-ditolak') }}">
                     <div class="tablink bottombar">tolak</div>
                 </a>
             </div>
-
-            <div id="dijadwalkan" class=" order" style="display:none">
-                <a href="{{ url('terapis/riwayat-detailorder') }}">
+            <div id="dijadwalkan" class="order" style="padding-top: 10px;">
+                @foreach ($user->terapis->pemesanan1 as $pemesanan)
+                <a href="javascript:detail({{ $pemesanan->id }})">
+                    <input type="hidden" id="id" value="{{ $pemesanan->id }}">
                     <div class="card">
+                        @foreach($pemesanan->pemesanan_detail as $detail)
                         <div class="paket">
-                            <p id="namapaket">Paket deep tissue + Kerokan</p>
+                            <p id="namapaket">
+                                @php
+                                $layanan = \App\Models\Layanan::where('id', $detail->layanan_id)->first();
+                                echo $layanan->nama_layanan;
+                                @endphp
+                            </p>
                         </div>
-
+                        @endforeach
                         <div class="alamat">
                             <p>Jl. Raya Janti, Gg. Arjuna No.59</p>
                         </div>
-
                         <div class="waktu">
                             <div class="tanggal">
-                                <p>12/03/2023/09:30 AM</p>
+                                <p>
+                                    <?php
+                                    // Variabel $pemesanan->created_at memiliki nilai '2024-04-26 15:00:00'
+                                    $created_at = $pemesanan->created_at;
+                                    // Format tanggal dan waktu
+                                    $formatted_date = date('d-m-Y', strtotime($created_at)); // Format tanggal menjadi 'dd-mm-yyyy'
+                                    $formatted_time = date('h:i A', strtotime($created_at)); // Format waktu menjadi 'hh:mm AM/PM'
+                                    // Gabungkan format tanggal dan waktu menjadi satu string
+                                    $formatted_datetime = $formatted_date . '/' . $formatted_time;
+                                    // Output
+                                    echo "<p>$formatted_datetime</p>";
+                                    ?>
+                                </p>
+                                <!-- <p>12/03/2023/09:30 AM</p> -->
                             </div>
                             <div class="ID">
                                 <p>ID pemesanan AN85356</p>
@@ -59,29 +75,10 @@
                         </div>
                     </div>
                 </a>
-
-                <div class="card">
-                    <div class="paket">
-                        <p id="namapaket">Paket deep tissue + Kerokan</p>
-                        {{-- <p id="statuspaket">Dijadwalkan</p> --}}
-                    </div>
-
-                    <div class="alamat">
-                        <p>Jl. Raya Janti, Gg. Arjuna No.59</p>
-                    </div>
-
-                    <div class="waktu">
-                        <div class="tanggal">
-                            <p>12/03/2023/10:30 AM</p>
-                        </div>
-                        <div class="ID">
-                            <p>ID pemesanan AN85356</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
-            <div id="selesai" class=" order" style="display:none">
+            <!-- <div id="selesai" class=" order" style="display:none">
                 <div class="judul">
                     <h5>tanggal</h5>
                 </div>
@@ -137,7 +134,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         @if (auth()->check() == 0)
         <div class="footer">
@@ -168,10 +165,15 @@
                 <img id="img-riwayat" src="{{ asset('frontend/terapist/img/riwayat-on.png') }}" alt="">
                 <p>Riwayat</p>
             </a>
-            <a href="{{ route('terapis.pendapatan') }}" class="{{ request()->is('terapis/pendapatan') ? 'active' : '' }}">
+            <a href="{{ route('terapis.pemesanan') }}" class="{{ request()->is('terapis/terapis-pemesanan') ? 'active' : '' }}">
+                <img src="{{ asset('frontend/terapist/img/pendapatan.png') }}" alt="">
+                <p>Pesanan</p>
+            </a>
+
+            <!-- <a href="{{ route('terapis.pendapatan') }}" class="{{ request()->is('terapis/pendapatan') ? 'active' : '' }}">
                 <img src="{{ asset('frontend/terapist/img/pendapatan.png') }}" alt="">
                 <p>Pendapatan</p>
-            </a>
+            </a> -->
             <a href="{{ route('terapis-profile.index') }}" class="">
                 <img src="{{ asset('frontend/terapist/img/akun.png') }}" alt="">
                 <p>Akun</p>
@@ -259,6 +261,12 @@
         if (document.getElementById('btnlain').checked) {
             document.getElementById('isian').style.visibility = 'visible';
         } else document.getElementById('isian').style.visibility = 'hidden';
+    }
+    //detail alert
+    function detail(id) {
+        // terapis.detailRiwayatDijadwalkan
+        window.location.href = "/terapis/riwayat/dijadwalkan/detail/" + id;
+        // alert(id);
     }
 </script>
 

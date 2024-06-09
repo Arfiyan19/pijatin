@@ -9,6 +9,7 @@ use App\Models\Alamat;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
@@ -107,15 +108,35 @@ class ProfileController extends Controller
     }
     public function formProfile($id)
     {
-        $data = User::with('customers', 'alamat')->where('id', $id)->first();
+
 
         return view('customer.form', compact('data'));
     }
     public function detailKtp($id)
     {
-        $data = User::with('customers', 'alamat')->where('id', $id)->first();
+        $data = User::with('customers')->where('id', $id)->first();
+        // dd($data);
+        // $data = User::with('customers', 'alamat')->where('id', $id)->first();
         return view('customer.detailktp', compact('data'));
     }
+    // postDetailKtp
+    public function postDetailKtp($id, Request $request)
+    {
+        $customer = DB::table('customers')->where('user_id', $id)->update([
+            'nama' => $request->nama,
+            'nik' => $request->nik,
+            'no_hp' => $request->no_hp,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+        ]);
+        return response()->json([
+            'id' => $id,
+            'success' => true,
+            'data' => $customer
+        ]);
+    }
+
     // alamat
     public function alamat($id)
     {
@@ -231,6 +252,7 @@ class ProfileController extends Controller
 
     public function postCariLokasi(Request $request, $id)
     {
+        //validator
 
         $alamat = Alamat::create([
             'user_id' => $id,
@@ -239,8 +261,8 @@ class ProfileController extends Controller
             'kecamatan' => $request->kecamatan,
             'kelurahan' => $request->kelurahan,
             'kode_pos' => $request->kode_pos,
-            'latitude' => '-',
-            'longitude' => '-',
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
             'alamat_lengkap' => '-',
         ]);
         return response()->json([
@@ -263,8 +285,6 @@ class ProfileController extends Controller
     {
         // dd($request->all());
         $alamat = Alamat::where('id', $id_alamat)->update([
-            'latitude' => '-',
-            'longitude' => '-',
             'alamat_lengkap' => $request->alamat,
         ]);
         return redirect()->route('customers.alamat', $id)->with('success', 'Data berhasil diubah');
@@ -314,6 +334,8 @@ class ProfileController extends Controller
             'kecamatan' => $request->kecamatan,
             'kelurahan' => $request->kelurahan,
             'kode_pos' => $request->kode_pos,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
         ]);
         return response()->json([
             'id' => $id,

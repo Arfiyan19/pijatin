@@ -161,6 +161,12 @@ body {
     background: #34cbaa;
     color: #fff;
 }
+.container2 .nav-btn .btn1.active {
+    background: #34cbaa;
+    color: #fff;
+}
+
+
 
 .container2 .frame {
     width: 100%;
@@ -1460,15 +1466,18 @@ header .current-date {
 button {
     margin: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+    /* background-color: #00f382; */
+    border: 1px solid var(--primary-primary-005, #56ab91);
+  color: var(--primary-primary-005, #56ab91);
+    /* color: #fff; */
+    /* border: none; */
     cursor: pointer;
     border-radius: 5px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-primary-005, #56ab91);
+    color: #fff;
 }
 
 .container3 {
@@ -1677,15 +1686,12 @@ button:hover {
     border-radius: 20px;
 }
 
-.container-refund button a {
+/* .container-refund button a {
     color: var(--neu-2-neu-2009, #fff);
-
-    background: var(--primary-primary-005, #56ab91);
-}
+} */
 
 .container-refund button a {
-    color: var(--neu-2-neu-2009, #fff);
-
+    color: var(--primary-primary-005, #56ab91);
     font-family: Poppins;
     font-size: 16px;
     font-style: normal;
@@ -1693,6 +1699,9 @@ button:hover {
     line-height: normal;
     letter-spacing: -0.64px;
     text-decoration: none;
+}
+.container-refund button a:hover {
+    color: #fff;
 }
 
 .container-refund .parent-dropdown {
@@ -2093,7 +2102,7 @@ button:hover {
     gap: 10px;
     flex-shrink: 0;
     border-radius: 16px;
-    background: var(--primary-primary-005, #56ab91);
+    /* background: var(--primary-primary-005, #56ab91); */
 }
 
 .button a {
@@ -2719,6 +2728,14 @@ button:hover {
     gap: 20px;
 }
 
+.card-alamat .content .head .head-tittle2 {
+    display: flex;
+    flex-direction: column; /* Menampilkan elemen dalam kolom */
+    gap: 5px;
+}
+
+
+
 .card-alamat .content .desc {
     display: flex;
     align-items: center;
@@ -2799,7 +2816,8 @@ button:hover {
     padding: 3% 8%;
     margin: 0 7%;
     width: 83.2%;
-    align-items: flex-start;
+    align-items: center; /* Center align the card */
+    justify-content: center; /* Center align the card horizontally */
     gap: 10px;
     border-radius: 10px;
     background: var(--primary-primary-005, #56ab91);
@@ -2807,7 +2825,7 @@ button:hover {
 
 .card-foto .frame {
     display: flex;
-    width: 50%;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     gap: 10px;
@@ -2815,7 +2833,6 @@ button:hover {
 
 .card-foto .frame .txt {
     color: #fff;
-
     font-family: Poppins;
     font-size: 14px;
     font-style: normal;
@@ -2829,16 +2846,24 @@ button:hover {
     padding: 10px;
     width: 100%;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
     border: 1px dashed #000;
     background: #fff;
+    border-radius: 50%; /* Make the container circular */
 }
 
 .pict img {
-    width: 100%;
-    height: 76.942px;
+    width: 150px; /* Set a fixed size for the image */
+    height: 150px; /* Set a fixed size for the image */
+    object-fit: cover; /* Ensure the image covers the container */
+    border-radius: 50%; /* Make the image circular */
 }
+
+
+
+
 
 .container-detailktp .detail {
     display: flex;
@@ -2849,6 +2874,57 @@ button:hover {
     gap: 10px;
     align-self: stretch;
 }
+
+.detail .frame {
+    display: flex;
+    width: 100%;
+    padding: 15px 11.6%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.detail .frame .txt {
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.56px;
+}
+/* parent-label */
+.detail .parent-label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+}
+/* form */
+.detail .form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 4px;
+}
+/* parent-label .form .select */
+.detail .select {
+    display: flex;
+    align-items: flex-start;
+    gap: 81px;
+}
+/* radio */
+.detail .radio {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 0px;
+}
+
+
+
 
 .detail table {
     width: 100%;

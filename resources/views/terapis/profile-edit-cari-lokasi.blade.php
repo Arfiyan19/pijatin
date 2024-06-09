@@ -21,6 +21,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <!-- import select css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrfSYyntgBJhrWpEGYgc1D6d5pYZISiAk"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrfSYyntgBJhrWpEGYgc1D6d5pYZISiAk&callback=initMap"></script>
     <!-- import select css -->
     <!-- import select css -->
 </head>
@@ -60,7 +62,12 @@
             <!-- //select option  -->
             <!-- //input  -->
             <input type="text" name="kodepos" id="kodepos" class="form-control" style="height: 30px; border-radius: 10px; padding-left: 10px;" placeholder="Kode Pos">
-
+            <div class="lokasi" style="margin-top: 10px;">Titik Lokasi</div>
+            <a href="javascript:void(0)" class="btn btn-primary" onclick="getLocation()">
+                <img src="{{ asset('frontend/assets/image/location.png') }}" alt="">
+            </a>
+            <input type="text" name="latitude" id="latitude" class="form-control" style="height: 30px; border-radius: 10px; padding-left: 10px;" placeholder="Latitude">
+            <input type="text" name="longitude" id="longitude" class="form-control" style="height: 30px; border-radius: 10px; padding-left: 10px;" placeholder="Longitude">
         </div>
         <div class="tombol" center>
             <button type="submit" class="btn btn-simpan">Simpan</button>
@@ -72,6 +79,39 @@
 </html>
 @if(auth()->check() == true)
 <script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showPosition(position) {
+        var lat = position.coords.latitude.toFixed(4);
+        var lng = position.coords.longitude.toFixed(4);
+        document.getElementById('latitude').value = lat;
+        document.getElementById('longitude').value = lng;
+    }
+
+    function showError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                alert("User denied the request for Geolocation.");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                alert("Location information is unavailable.");
+                break;
+            case error.TIMEOUT:
+                alert("The request to get user location timed out.");
+                break;
+            case error.UNKNOWN_ERROR:
+                alert("An unknown error occurred.");
+                break;
+        }
+    }
+
+
     // terapis.provinsi
     // province onclick 
     $(document).ready(function() {
@@ -164,6 +204,8 @@
             var kotaName = $('select[name="city"]').val();
             var kecamatanName = $('select[name="district"]').val();
             var kelurahanName = $('select[name="subdistrict"]').val();
+            var latitude = $('#latitude').val();
+            var longitude = $('#longitude').val();
             $.ajax({
                 type: "PUT",
                 // /terapis-profile/alamat/{id}/edit/{id_alamat}/carilokasi
@@ -176,6 +218,8 @@
                     kota: $('#city option:selected').text(),
                     kecamatan: $('#district option:selected').text(),
                     kelurahan: $('#subdistrict option:selected').text(),
+                    latitude: latitude,
+                    longitude: longitude
                 },
                 success: function(data) {
                     var idAlamat = data.idAlamat;

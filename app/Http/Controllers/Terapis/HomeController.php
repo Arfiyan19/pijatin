@@ -3,14 +3,23 @@
 namespace App\Http\Controllers\Terapis;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pemesanan;
 use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
     public function index()
     {
         $data = auth()->user()->terapis;
-        return view('terapis.beranda-final', compact('data'));
+        $pemesanan = Pemesanan::where('terapis_id_1', $data->id)->where('status_pemesanan', 'Sukses')->get();
+        //count $pemesanan->total_bayar
+        $total = 0;
+        foreach ($pemesanan as $key => $value) {
+            $total += $value->total_bayar;
+        }
+        // dd($total);
+        return view('terapis.beranda-final', compact('data', 'total'));
     }
     public function loginIndex()
     {
@@ -29,6 +38,11 @@ class HomeController extends Controller
     }
 
     public function riwayat()
+    {
+        return view('terapis.riwayat');
+    }
+    //riwayat dijadwalkan
+    public function riwayatDijadwalkan()
     {
         return view('terapis.riwayat-dijadwalkan');
     }

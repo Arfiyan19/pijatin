@@ -153,9 +153,13 @@ letter-spacing: -0.48px;
   align-items: left;
   margin-bottom: 10px;
   border-radius: 10px;
-  border: 1.5px solid var(--neu2-neu2-004, #BCB8B8);
+  border: 2px solid var(--neu2-neu2-004, #BCB8B8);
   background: var(--neu2-neu2-009, #FFF);
   padding: 10px; /* Added padding for spacing within the frame */
+}
+/* //frame-riwayat-content active */
+.frame-riwayat-content.active {
+  border-color: #51b518;
 }
 
 /* ... (existing styles) */

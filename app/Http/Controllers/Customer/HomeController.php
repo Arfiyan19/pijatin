@@ -6,6 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Layanan;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Pemesanan;
+use App\Models\Terapis;
+use App\Models\DetailPemesanan;
+use App\Models\Customers;
+
 
 class HomeController extends Controller
 {
@@ -17,12 +23,6 @@ class HomeController extends Controller
         // dd($layanan_utama);
         return view('customer.newhome', compact('user', 'layanan_utama'));
     }
-    // riwayat
-    public function riwayat()
-    {
-        return view('customer.riwayat');
-    }
-    
     public function notifikasi()
     {
         return view('customer.notif');

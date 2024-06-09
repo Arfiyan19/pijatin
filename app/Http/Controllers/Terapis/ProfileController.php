@@ -118,6 +118,8 @@ class ProfileController extends Controller
         $data = Terapis::where('user_id', $id)->with('user')->first();
         return view('terapis.ktp-therapist', compact('data'));
     }
+    //layanan
+
     // alamat
     public function alamat($id)
     {
@@ -233,6 +235,7 @@ class ProfileController extends Controller
     // postCariLokasi
     public function postCariLokasi(Request $request, $id)
     {
+        // dd($request->all());
         $alamat = Alamat::create([
             'user_id' => $id,
             'provinsi' => $request->provinsi,
@@ -240,8 +243,8 @@ class ProfileController extends Controller
             'kecamatan' => $request->kecamatan,
             'kelurahan' => $request->kelurahan,
             'kode_pos' => $request->kode_pos,
-            'latitude' => '-',
-            'longitude' => '-',
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
             'alamat_lengkap' => '-',
         ]);
         return response()->json([
@@ -277,8 +280,6 @@ class ProfileController extends Controller
     public function updateAlamat($id, $id_alamat, Request $request)
     {
         $alamat = Alamat::where('id', $id_alamat)->update([
-            'latitude' => '-',
-            'longitude' => '-',
             'alamat_lengkap' => $request->alamat,
         ]);
         return redirect()->route('terapis.alamat', $id)->with('success', 'Data berhasil diubah');
@@ -338,12 +339,15 @@ class ProfileController extends Controller
     // updateCariLokasi
     public function updateCariLokasi($id, $idAlamat, Request $request)
     {
+        // dd($request->all());
         $alamat = Alamat::where('id', $idAlamat)->update([
             'provinsi' => $request->provinsi,
             'kota' => $request->kota,
             'kecamatan' => $request->kecamatan,
             'kelurahan' => $request->kelurahan,
             'kode_pos' => $request->kode_pos,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
         ]);
         return response()->json([
             'id' => $id,

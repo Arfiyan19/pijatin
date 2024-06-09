@@ -14,6 +14,7 @@ use App\Models\Terapis;
 use App\Models\User;
 use App\Models\DetailPemesanan;
 use App\Models\DetailLayanan;
+use Carbon\Carbon;
 
 class PemesananController extends Controller
 {
@@ -58,7 +59,8 @@ class PemesananController extends Controller
     public function detailPemesan($id)
     {
         $layanan = Layanan::where('jenis_layanan', 'layanan_tambahan')->get();
-        return view('customer.detailpemesanan', compact('id', 'layanan'));
+        return view('customer.detailPemesanan', compact('id', 'layanan'));
+        // dd($layanan);
     }
     public function simpanDetailPemesan(Request $request, $id)
     {
@@ -69,12 +71,10 @@ class PemesananController extends Controller
                 'nama_pemesan' => 'required',
                 //pilih jk
                 'jk_pemesan' => 'required',
-                'jk_terapis' => 'required',
             ],
             [
                 'nama_pemesan.required' => 'Nama pemesan harus diisi',
                 'jk_pemesan.required' => 'Jenis kelamin pemesan harus diisi',
-                'jk_terapis.required' => 'Jenis kelamin terapis harus diisi',
             ]
         );
         //return validasi
@@ -114,10 +114,6 @@ class PemesananController extends Controller
         // total_bayar
         $pemesanan->total_bayar = $layanan->harga;
         $pemesanan->save();
-        // if ($request->layanan_tambahan) {
-        //     $pemesanan->layanan_tambahan()->attach($request->layanan_tambahan);
-        // }
-        //simpan ke table detail pemesanan
         $detail_pemesanan = new DetailPemesanan;
         $detail_pemesanan->pemesanan_id = $pemesanan->id;
         $detail_pemesanan->layanan_id = $layanan->id;
@@ -132,6 +128,7 @@ class PemesananController extends Controller
                 $i++;
             }
         }
+        // dd($detail_pemesanan);
         $detail_pemesanan->jumlah = 1;
         $detail_pemesanan->save();
         //update pemesanan total bayar
@@ -150,7 +147,198 @@ class PemesananController extends Controller
             ]
         );
     }
+    // detailPemesanID
+    public function detailPemesanID($id, $id_pemesanan)
+    {
+        $layanan = Layanan::find($id);
+        $pemesanan = Pemesanan::with('pemesanan_detail')->where('id', $id_pemesanan)->first();
+        $layanan_tambahan = [];
+        foreach ($pemesanan->pemesanan_detail as $key => $value) {
+            $layanan_tambahan[] = Layanan::find($value->layanan_tambahan_1);
+            $layanan_tambahan[] = Layanan::find($value->layanan_tambahan_2);
+            $layanan_tambahan[] = Layanan::find($value->layanan_tambahan_3);
+            $layanan_tambahan[] = Layanan::find($value->layanan_tambahan_4);
+        }
+        $user = auth()->user();
+        // dd($layanan_tambahan);
+        return view('customer.detail-layanan-pemesan', compact('id', 'id_pemesanan', 'pemesanan', 'layanan_tambahan', 'layanan', 'user'));
+    }
+    // detail-pemesan-pencarianTerapis
+    public function detailPemesanPencarianTerapis($id, $id_pemesanan)
+    {
+        $layanan = DetailLayanan::with('layanan')->where('id_layanan', $id)->get();
 
+        $pemesanan = Pemesanan::with('pemesanan_detail')->where('id', $id_pemesanan)->first();
+        $layanan_tambahan = [];
+        foreach ($pemesanan->pemesanan_detail as $key => $value) {
+            $layanan_tambahan[] = Layanan::find($value->layanan_tambahan_1);
+            $layanan_tambahan[] = Layanan::find($value->layanan_tambahan_2);
+            $layanan_tambahan[] = Layanan::find($value->layanan_tambahan_3);
+            $layanan_tambahan[] = Layanan::find($value->layanan_tambahan_4);
+        }
+        $terapis = [];
+        foreach ($layanan as $key => $value) {
+            // $terapis[] = Terapis::with('user')->where('id', $value->id_terapis)->get();
+            $terapis[] = Terapis::with(['user', 'alamat'])->where('id', $value->id_terapis)->get();
+        }
+        $terapis = collect($terapis)->collapse();
+        //get_user_id
+        foreach ($terapis as $key => $value) {
+            $user_id[] = $value->user_id;
+        }
+        //db_almat where user_id
+        $alamat_terapis = Alamat::whereIn('user_id', $user_id)->get();
+        //latitude dan longttiude alamat_terapis
+        $latitude_longitude = [];
+
+        foreach ($alamat_terapis as $alamat) {
+            $latitude_longitude[] = [
+                'latitude' => $alamat->latitude,
+                'longitude' => $alamat->longitude
+            ];
+        }
+        ///alamat customers dan ambil latitude_dan_longtitude
+        $alamat_customer = auth()->user()->alamat[0];
+        //latitude dan longtitude customers
+        $latitude_longitude_customer = [
+            'latitude' => $alamat_customer->latitude,
+            'longitude' => $alamat_customer->longitude
+        ];
+        //rumus haversine formula untuk mencari jarak customers dengan beberapa terapis
+        $lat1 = $latitude_longitude_customer['latitude'];
+        $lon1 = $latitude_longitude_customer['longitude'];
+        $distances = [];
+
+        // Hitung jarak antara pelanggan dan setiap terapis
+        foreach ($latitude_longitude as $latlong) {
+            $lat2 = $latlong['latitude'];
+            $lon2 = $latlong['longitude'];
+            $distance = $this->calculateDistance($lat1, $lon1, $lat2, $lon2);
+            $distance = round($distance, 2); // Menggunakan fungsi round()
+            $distances[] = $distance;
+        }
+        $terapis = $terapis->toArray();
+        //jarak
+        $terapis = array_map(function ($terapis, $distance) {
+            $terapis['distance'] = $distance;
+            return $terapis;
+        }, $terapis, $distances);
+        //alamat
+        foreach ($terapis as $key => $value) {
+            $alamat = Alamat::where('user_id', $value['user_id'])->first();
+            $terapis[$key]['alamat'] = $alamat;
+        }
+        //sort dari terapis yang memiliki jarak terdekat
+        usort($terapis, function ($a, $b) {
+            return $a['distance'] <=> $b['distance'];
+        });
+        // dd($terapis);
+        $tarif_per_km = 2000;
+        //masukan ke terapis
+        $terapis = array_map(function ($terapis) use ($tarif_per_km) {
+            $terapis['tarif'] = $terapis['distance'] * $tarif_per_km;
+            return $terapis;
+        }, $terapis);
+        // dd($terapis);
+
+        $user_alamat = auth()->user()->alamat[0];
+        // return view('customer.detail-layanan-pemesan-pencarian-terapis', compact('terapis', 'layanan', 'id', 'id_pemesanan', 'distances', 'user_alamat'));
+        return view('customer.detail-layanan-pemesan-pencarian-terapis', compact('terapis', 'layanan', 'id', 'id_pemesanan', 'distances', 'user_alamat'));
+    }
+    // detailPemesanPencarianTerapis
+    public function detailPemesanPencarianTerapisSimpan($id, $id_pemesanan, Request $request)
+    {
+        $pemesanan = Pemesanan::with('pemesanan_detail')->where('id', $id_pemesanan)->get();
+        //UPDATE PEMESANAN PADA KOLOM TERAPIS_1
+        $pemesanan = Pemesanan::find($id_pemesanan);
+        $pemesanan->terapis_id_1 = $request->id_terapis;
+        //update total_bayar tambah dengan request->tarif
+        $pemesanan->total_bayar = $pemesanan->total_bayar + $request->tarif;
+        $pemesanan->save();
+        //response
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Data berhasil disimpan',
+                'data' => $pemesanan,
+                'request' => $request->all()
+            ]
+        );
+    }
+    // detailPemesanPencarianTerapisID
+    public function detailPemesanPencarianTerapisID($id, $id_pemesanan, $id_terapis, Request $request)
+    {
+        $layanan = Layanan::find($id);
+        $pemesanan = Pemesanan::with('pemesanan_detail')->where('id', $id_pemesanan)->first();
+        $layanan_tambahan = [];
+        foreach ($pemesanan->pemesanan_detail as $key => $value) {
+            $layanan_tambahan[] = Layanan::find($value->layanan_tambahan_1);
+            $layanan_tambahan[] = Layanan::find($value->layanan_tambahan_2);
+            $layanan_tambahan[] = Layanan::find($value->layanan_tambahan_3);
+            $layanan_tambahan[] = Layanan::find($value->layanan_tambahan_4);
+        }
+        $user = auth()->user();
+        $terapis = Terapis::with('user')->where('id', $id_terapis)->first();
+        //jarak rumus haversine
+        $alamat_terapis = Alamat::whereIn('user_id', [$terapis->user_id])->get();
+        //latitude dan longttiude alamat_terapis
+        $latitude_longitude = [];
+        foreach ($alamat_terapis as $alamat) {
+            $latitude_longitude[] = [
+                'latitude' => $alamat->latitude,
+                'longitude' => $alamat->longitude
+            ];
+        }
+
+        // latitude_longitude_users
+        $alamat_customer = auth()->user()->alamat[0];
+        //latitude dan longtitude customers
+        $latitude_longitude_customer = [
+            'latitude' => $alamat_customer->latitude,
+            'longitude' => $alamat_customer->longitude
+        ];
+        //rumus haversine formula untuk mencari jarak customers dengan beberapa terapis
+        $lat1 = $latitude_longitude_customer['latitude'];
+        $lon1 = $latitude_longitude_customer['longitude'];
+        $distances = [];
+        // Hitung jarak antara pelanggan dan setiap terapis
+        foreach ($latitude_longitude as $latlong) {
+            $lat2 = $latlong['latitude'];
+            $lon2 = $latlong['longitude'];
+            $distance = $this->calculateDistance($lat1, $lon1, $lat2, $lon2);
+            $distance = round($distance, 2); // Menggunakan fungsi round()
+            $distances[] = $distance;
+        }
+        $terapis['distance'] = $distances[0];
+        $terapis['alamat'] = $alamat_terapis[0];
+
+        // dd($layanan_tambahan);
+        return view('customer.detail-layanan-pemesan-pencarian-terapis-after', compact('id', 'id_pemesanan', 'pemesanan', 'layanan_tambahan', 'layanan', 'user', 'terapis'));
+    }
+    // detailPemesanPencarianTerapisIDPost
+    public function detailPemesanPencarianTerapisIDPost($id, $id_pemesanan, $id_terapis, Request $request)
+    {
+        $pemesanan = Pemesanan::with('pemesanan_detail')->where('id', $id_pemesanan)->get();
+        // conver tanggal to yyyy-mm-dd
+        $tanggal_pemesanan = carbon::parse($request->tanggal_pemesanan)->format('Y-m-d');
+        // $jam = $request->jam; hasil 13:00 convert / tambahi agar 13:00:00
+        $jam = carbon::parse($request->jam)->format('H:i:s');
+        $tanggal_pemesanan_jam = $tanggal_pemesanan . ' ' . $jam;
+        // dd($tanggal_pemesanan_jam);
+        //update pemesanan ->create_at
+        $pemesanan = Pemesanan::find($id_pemesanan);
+        $pemesanan->created_at = $tanggal_pemesanan_jam;
+        $pemesanan->save();
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Data berhasil disimpan',
+                'data' => $pemesanan,
+                'request' => $request->all()
+            ]
+        );
+        // dd($pemesanan);
+    }
     public function index($id)
     {
         return view('customer.pemesanan.index');
@@ -211,6 +399,9 @@ class PemesananController extends Controller
             $alamat = Alamat::where('user_id', $value['user_id'])->first();
             $terapis[$key]['alamat'] = $alamat;
         }
+        usort($terapis, function ($a, $b) {
+            return $a['distance'] <=> $b['distance'];
+        });
         $user_alamat = auth()->user()->alamat[0];
         return view('customer.pencarian-terapis', compact('terapis', 'layanan', 'id', 'distances', 'user_alamat'));
 

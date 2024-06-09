@@ -13,7 +13,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-
+    <!-- //cdn jquery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!-- my style -->
     <link rel="stylesheet" href="{{ asset('frontend/css/homeCustomer.css') }}">
 
@@ -34,13 +37,22 @@
             </div>
         </div>
     </div>
-    @if(auth()->check() == true)
     <div class="container-detailktp">
         <div class="header">
-            <div class="tittle">Informasi KTP</div>
+            <div class="tittle">Informasi Data Diri</div>
         </div>
+        <!-- //card-foto circle -->
 
-        <div class="card-foto">
+        <!-- <div class="card-foto"> -->
+        <div class="frame" style="cursor: pointer;">
+            <!-- <div class="txt">Foto KTP</div> -->
+            <div class="pict">
+                <img src="{{ asset('storage/foto_ktp/' . $data['customers']['foto_ktp'] ) }}" alt="">
+            </div>
+        </div>
+        <!-- </div> -->
+
+        <!-- <div class="card-foto">
             <div class="frame">
                 <div class="txt">Foto KTP</div>
                 <div class="pict">
@@ -52,138 +64,107 @@
                 <div class="txt">Foto KTP</div>
                 <div class="pict"><img src="{{ asset('frontend/assets/image/ktp-selfi.png') }}" alt=""></div>
             </div>
-        </div>
+        </div> -->
 
         <div class="detail">
-            <table>
-                <thead>
-                    <tr>
-                        <td>Nik KTP</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{ $data['customers']['nik'] }}</td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <td>Nama lengkap(sesuai KTP)</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{ $data['customers']['nama'] }}</td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <td>Tempat lahir</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{ $data['alamat'][0]['provinsi'] }}</td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <td>Tanggal lahir</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{ date('d F Y',strtotime($data['customers']['tanggal_lahir'])) }}</td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <td>Alamat</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{$data['alamat'][0]['alamat_lengkap'] . ', '. $data['alamat'][0]['kecamatan'] . ', '. $data['alamat'][0]['kota'] . ', '. $data['alamat'][0]['provinsi'] }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    @elseif(auth()->check() == false)
-    <div class="container-detailktp">
-        <div class="header">
-            <div class="tittle">Informasi KTP</div>
-        </div>
+            <!-- //form  -->
 
-        <div class="card-foto">
             <div class="frame">
-                <div class="txt">Foto KTP</div>
-                <div class="pict"><img src="{{ asset('frontend/assets/image/ktp4.png') }}" alt=""></div>
-            </div>
-            <div class="frame">
-                <div class="txt">Foto KTP</div>
-                <div class="pict"><img src="{{ asset('frontend/assets/image/ktp-selfi.png') }}" alt=""></div>
+                <div class="txt">Isi identitas sesuai dengan data diri KTP anda</div>
+
+                <div class="parent-label">
+                    <div class="form">
+                        <label for="nama" class="form-label">Nama Lengkap <span>*</span> </label>
+                        <input class="form-control" id="nama" value="{{ $data['customers']['nama'] }}" required>
+                    </div>
+                    <div class="form">
+                        <label for="nik" class="form-label">Nomor NIK KTP <span>*</span> </label>
+                        <input class="form-control" id="nik" value="{{ $data['customers']['nik'] }}" required>
+                    </div>
+                    <!-- //nomor telepon  -->
+                    <div class="form">
+                        <label for="no" class="form-label">Nomor Telepon <span>*</span> </label>
+                        <input class="form-control" id="no" value="{{ $data['customers']['no_hp'] }}" required>
+                    </div>
+                    <div class="form">
+                        <label for="tl" class="form-label">Tempat Lahir <span>*</span> </label>
+                        <input class="form-control" id="tl" value="{{ $data['customers']['tempat_lahir'] }}" required>
+                    </div>
+                    <div class="form">
+                        <label for="tanggal" class="form-label">Tanggal Lahir <span>*</span></label>
+                        <!-- date  -->
+                        <input class="form-control" id="tanggal" value="{{ $data['customers']['tanggal_lahir'] }}" type="date" required>
+                        <!-- <input class="form-control" id="tanggal" value="{{ $data['customers']['tanggal_lahir'] }}" required> -->
+                    </div>
+                    <!-- //jenis kelamin  radio -->
+                    <div class="form">
+                        <label for="jk" class="form-label">Jenis Kelamin <span>*</span></label>
+                        <div class="radio">
+                            @if($data['customers']['jenis_kelamin'] == 'Laki-Laki')
+                            <input type="radio" id="Laki-Laki" name="jk" value="Laki-Laki" style="margin-right: 10px;margin-top: 4px;" checked>
+                            <label for="Laki-Laki">Laki-Laki</label>
+                            <input type="radio" id="Perempuan" name="jk" value="Perempuan" style="margin-left: 10px;margin-top: 4px;">
+                            <label for="Perempuan">Perempuan</label>
+                            @else
+                            <input type="radio" id="Laki-Laki" name="jk" value="Laki-Laki" style="margin-right: 10px;margin-top: 4px;">
+                            <label for="Laki-Laki">Laki-Laki</label>
+                            <input type="radio" id="Perempuan" name="jk" value="Perempuan" style="margin-left: 10px;margin-top: 4px;" checked>
+                            <label for="Perempuan">Perempuan</label>
+                            @endif
+                        </div>
+                    </div>
+
+                </div>
+                <!-- //button  -->
+                <!-- //buton  -->
+                <div class="button">
+                    <!-- //a href java script simpan by id  -->
+
+                    <button>Simpan</button>
+                </div>
             </div>
         </div>
-
-        <div class="detail">
-            <table>
-                <thead>
-                    <tr>
-                        <td>No KTP</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>12345678910</td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <td>Nama lengkap(sesuai KTP)</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Supriadi Jalaludin</td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <td>Tempat lahir</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Jakarta</td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <td>Tanggal lahir</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>08 November 2023</td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <tr>
-                        <td>Alamat</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Jl.Raya Janti Gg.Arjuna No 59 Banguntapan,Bantul </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
-    @endif
-
-
 </body>
+<script>
+    $(function() {
+        // Inisialisasi kalender pop-up
+        $("#tanggal").datepicker({
+            dateFormat: "dd/mm/yy", // Format tanggal yang diinginkan
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+    //button click alert 
+    $('.button button').click(function() {
+        // customers.postDetailKtp
+        // profile/{id}/detail-ktp 
+        $.ajax({
+            url: "{{ route('customers.postDetailKtp', ['id' => $data->id]) }}",
+            type: 'POST',
+            data: {
+                _token: "{{ csrf_token() }}",
+                nama: $('#nama').val(),
+                nik: $('#nik').val(),
+                no_hp: $('#no').val(),
+                tempat_lahir: $('#tl').val(),
+                tanggal_lahir: $('#tanggal').val(),
+                jenis_kelamin: $('input[name=jk]:checked').val()
+            },
+            success: function(data) {
+                toastr.success('Data Berhasil Disimpan')
+                // profile
+                setTimeout(function() {
+                    window.location.href = "{{ route('profile.index') }}"
+                }, 1000)
+            },
+            error: function(data) {
+                toastr.error('Data Gagal Disimpan')
+            }
+        })
+        // toastr.success('Data Berhasil Disimpan')
+    });
+</script>
+
 
 </html>

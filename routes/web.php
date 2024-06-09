@@ -294,6 +294,8 @@ Route::get('/customers/pilih-role', 'App\Http\Controllers\Auth\CustomersAuthCont
 Route::middleware(['auth', 'role:customer'])->prefix('customers')->group(function () {
     // home
     Route::get('/home', 'App\Http\Controllers\Customer\HomeController@index')->name('customers.dashboard');
+    //notifikasi
+
     //layanan
     Route::get('/layanan', 'App\Http\Controllers\Customer\PemesananController@layanan')->name('customers.layanan');
     // layanan/detail 
@@ -301,6 +303,16 @@ Route::middleware(['auth', 'role:customer'])->prefix('customers')->group(functio
     //post pemesanan
     Route::get('/layanan/pesan/{id}/detailPemesan', 'App\Http\Controllers\Customer\PemesananController@detailPemesan')->name('customers.detailPemesan');
     Route::post('/layanan/pesan/{id}/detailPemesan', 'App\Http\Controllers\Customer\PemesananController@simpanDetailPemesan')->name('customers.simpanDetailPemesan');
+    //post detailPemesan-pencarian-terapis setelah mengisi nama pemesan
+    Route::get('/layanan/pesan/{id}/detailPemesan/{id_pemesanan}/pencarian-terapis', 'App\Http\Controllers\Customer\PemesananController@detailPemesanPencarianTerapis')->name('customers.detailPemesanPencarianTerapis');
+    // detailPemesanPencarianTerapisSimpan
+    Route::post('/layanan/pesan/{id}/detailPemesan/{id_pemesanan}/pencarian-terapis', 'App\Http\Controllers\Customer\PemesananController@detailPemesanPencarianTerapisSimpan')->name('customers.detailPemesanPencarianTerapisSimpan');
+    // detailPemesanPencarianTerapisSimpan redirect layanan pesanan
+    Route::get('/layanan/pesan/{id}/detailPemesan/{id_pemesanan}/pencarian-terapis/{id_terapis}', 'App\Http\Controllers\Customer\PemesananController@detailPemesanPencarianTerapisID')->name('customers.detailPemesanPencarianTerapisID');
+    // layanan/pesan/{id}/detailPemesan/{id_pemesanan}/pencarian-terapis/{id_terapis}/pesan
+    Route::post('/layanan/pesan/{id}/detailPemesan/{id_pemesanan}/pencarian-terapis/{id_terapis}/pesan', 'App\Http\Controllers\Customer\PemesananController@detailPemesanPencarianTerapisIDPost')->name('customers.detailPemesanPencarianTerapisIDPost');
+    // /layanan/pesan/{id}/detailPemesan{id_pemesanan)
+    Route::get('/layanan/pesan/{id}/detailPemesan/{id_pemesanan}', 'App\Http\Controllers\Customer\PemesananController@detailPemesanID')->name('customers.detailPemesanID');
     //post pemesanan-pencarian-therapis
     Route::get('/layanan/pesan/{id}/pencarian-terapis', 'App\Http\Controllers\Customer\PemesananController@pencarianTerapis')->name('customers.pencarianTerapis');
     // pencarianTerapisJson
@@ -311,7 +323,21 @@ Route::middleware(['auth', 'role:customer'])->prefix('customers')->group(functio
 
     Route::post('/layanan/pesan/{id}', 'App\Http\Controllers\Customer\PemesananController@postPemesanan')->name('customers.postPemesanan');
     // riwayat
-    Route::get('/riwayat', 'App\Http\Controllers\Customer\HomeController@riwayat')->name('customers.riwayat');
+    Route::get('/riwayat', 'App\Http\Controllers\Customer\RiwayatController@index')->name('customers.riwayat');
+    //riwayat dijadwalkan
+    Route::get('/riwayat/dijadwalkan', 'App\Http\Controllers\Customer\RiwayatController@riwayatDijadwalkan')->name('customers.riwayat-dijadwalkan');
+    //riwayat/dijadwalkan/{id_pemesanan}
+    Route::get('/riwayat/dijadwalkan/{id_pemesanan}', 'App\Http\Controllers\Customer\RiwayatController@riwayatDijadwalkanID')->name('customers.riwayat-dijadwalkanID');
+    //riwayat selesai
+    Route::get('/riwayat/selesai', 'App\Http\Controllers\Customer\RiwayatController@riwayatSelesai')->name('customers.riwayat-selesai');
+    //id
+    Route::get('/riwayat/selesai/{id_pemesanan}', 'App\Http\Controllers\Customer\RiwayatController@riwayatSelesaiID')->name('customers.riwayat-selesaiID');
+    //riwayat dibatalkan
+    Route::get('/riwayat/dibatalkan', 'App\Http\Controllers\Customer\RiwayatController@riwayatDibatalkan')->name('customers.riwayat-dibatalkan');
+    //id
+    Route::get('/riwayat/dibatalkan/{id_pemesanan}', 'App\Http\Controllers\Customer\RiwayatController@riwayatDibatalkanID')->name('customers.riwayat-dibatalkanID');
+
+
     //profile
     Route::resource('profile', 'App\Http\Controllers\Customer\ProfileController');
     Route::get('/profile/{id}/alamat', 'App\Http\Controllers\Customer\ProfileController@alamat')->name('customers.alamat');
@@ -336,9 +362,13 @@ Route::middleware(['auth', 'role:customer'])->prefix('customers')->group(functio
 
 
     Route::get('/profile/{id}/detail-ktp', 'App\Http\Controllers\Customer\ProfileController@detailKtp')->name('customers.detailKtp');
+    //post
+    Route::post('/profile/{id}/detail-ktp', 'App\Http\Controllers\Customer\ProfileController@postDetailKtp')->name('customers.postDetailKtp');
     //alamat
     //notifikasi
-    Route::get('/notifikasi', 'App\Http\Controllers\Customer\HomeController@notifikasi')->name('customers.notifikasi');
+    // Route::get('/notifikasi', 'App\Http\Controllers\Customer\HomeController@notifikasi')->name('customers.notifikasi');
+    Route::get('/notifikasi', 'App\Http\Controllers\Customer\NotifikasiController@index')->name('customers.notifikasi');
+    Route::get('/notifikasi/detail/{id}', 'App\Http\Controllers\Customer\NotifikasiController@detail')->name('customers.notifikasi.detail');
     //cashback
     Route::get('/notifikasi/cashback', 'App\Http\Controllers\Customer\HomeController@cashback')->name('customers.cashback');
 
@@ -351,11 +381,27 @@ Route::middleware(['auth', 'role:customer'])->prefix('customers')->group(functio
 */
 Route::get('/terapis', 'App\Http\Controllers\Terapis\HomeController@loginIndex')->name('terapis.login');
 Route::get('/terapis/logout', 'App\Http\Controllers\Auth\TerapisAuthController@logout')->name('terapis.logout');
+
 Route::middleware(['auth', 'role:terapis'])->prefix('terapis')->group(function () {
     Route::get('/home', 'App\Http\Controllers\Terapis\HomeController@index')->name('terapis.dashboard');
     //terapis update status penerimaan pesananan
     Route::post('/home/update-status', 'App\Http\Controllers\Terapis\HomeController@updateStatus')->name('terapis.updateStatus');
-    Route::get('/riwayat', 'App\Http\Controllers\Terapis\HomeController@riwayat')->name('terapis.riwayat');
+    Route::get('/riwayat', 'App\Http\Controllers\Terapis\RiwayatController@index')->name('terapis.riwayat');
+    //riwayat dijadwalkan
+    Route::get('/riwayat/dijadwalkan', 'App\Http\Controllers\Terapis\RiwayatController@riwayatDijadwalkan')->name('terapis.riwayat-dijadwalkan');
+    //detail/id
+    Route::get('/riwayat/dijadwalkan/detail/{id}', 'App\Http\Controllers\Terapis\RiwayatController@detailRiwayatDijadwalkan')->name('terapis.detailRiwayatDijadwalkan');
+    // riwayat/dijadwalkan/detail{id} post 
+    Route::post('/riwayat/dijadwalkan/detail/{id}', 'App\Http\Controllers\Terapis\RiwayatController@postDetailRiwayatDijadwalkan')->name('terapis.postDetailRiwayatDijadwalkan');
+    //riwayat selesai
+    Route::get('/riwayat/selesai', 'App\Http\Controllers\Terapis\RiwayatController@riwayatSelesai')->name('terapis.riwayat-selesai');
+    //detail/id
+    Route::get('/riwayat/selesai/detail/{id}', 'App\Http\Controllers\Terapis\RiwayatController@detailRiwayatSelesai')->name('terapis.detailRiwayatSelesai');
+    //tolak
+    // terapis.riwayat-ditolak
+    Route::get('/riwayat/ditolak', 'App\Http\Controllers\Terapis\RiwayatController@riwayatDitolak')->name('terapis.riwayat-ditolak');
+    //detail/id
+    Route::get('/riwayat/ditolak/detail/{id}', 'App\Http\Controllers\Terapis\RiwayatController@detailRiwayatDitolak')->name('terapis.detailRiwayatDitolak');
     //profiles
     Route::resource('terapis-profile', 'App\Http\Controllers\Terapis\ProfileController');
     // -terapis-profile/update-foto
@@ -394,6 +440,22 @@ Route::middleware(['auth', 'role:terapis'])->prefix('terapis')->group(function (
     Route::get('/terapis-profile/rekening/{id}/delete/{id_rekening}', 'App\Http\Controllers\Terapis\RekeningController@deleteRekening')->name('terapis.rekening.delete');
     // PUT 
     Route::PUT('/terapis-profile/rekening/{id}/update/{id_rekening}', 'App\Http\Controllers\Terapis\RekeningController@updateRekening')->name('terapis.rekening.update');
+    //layanan
+    Route::get('/terapis-profile/layanan/{id}', 'App\Http\Controllers\Terapis\LayananController@index')->name('terapis.layanan');
+    Route::get('/terapis-profile/layanan/{id}/tambah', 'App\Http\Controllers\Terapis\LayananController@tambahLayanan')->name('terapis.layanan.tambah');
+    Route::get('/terapis-profile/layanan/{id}/tambah/getLayanan', 'App\Http\Controllers\Terapis\LayananController@getLayanan')->name('terapis.layanan.getLayanan');
+    //terapis.getLayanan/6
+    Route::get('/terapis-profile/layanan/{id}/tambah/getLayanan/{id_layanan}', 'App\Http\Controllers\Terapis\LayananController@getLayananID')->name('terapis.layanan.getLayananID');
+    Route::post('/terapis-profile/layanan/{id}/tambah', 'App\Http\Controllers\Terapis\LayananController@tambahLayananPost')->name('terapis.layanan.tambahPost');
+    //    /terapis-pemesanan
+    Route::get('/terapis-pemesanan', 'App\Http\Controllers\Terapis\PemesananController@index')->name('terapis.pemesanan');
+    //terima-pemesanan
+    Route::get('/terapis-pemesanan/konfirmasi/{id}', 'App\Http\Controllers\Terapis\PemesananController@konfirmasi')->name('terapis.konfirmasi');
+    //terapis-pemesanan/konfirmasi/{id}/konfirmasi
+    Route::post('/terapis-pemesanan/konfirmasi/{id}/konfirmasi', 'App\Http\Controllers\Terapis\PemesananController@konfirmasiPost')->name('terapis.konfirmasiPost');
+
+
+
     //pendapatan
     Route::get('/terapis-pendapatan', 'App\Http\Controllers\Terapis\PendapatanController@index')->name('terapis.pendapatan');
     Route::get('/terapis-pendapatan/topup', 'App\Http\Controllers\Terapis\PendapatanController@topup')->name('terapis.topup');
@@ -683,6 +745,11 @@ Route::get('/terapis/riwayat-detailorder-selesai', function () {
     return view('terapis.riwayat-detail-order-selesai');
 })->name('riwayat-detailorder-selesai');
 
+Route::get('/terapis/riwayat-detailorder-diterima', function () {
+    return view('terapis.riwayat-detail-order-diterima');
+})->name('riwayat-detailorder-diterima');
+
+
 // Halaman terapis:riwayat-pesanan ditolak mobile
 Route::get('/terapis/riwayat-orderditolak', function () {
     return view('terapis.riwayat-order-ditolak');
@@ -806,6 +873,10 @@ Route::get('/terapis/pendapatan2', function () {
 Route::get('/terapis/pendapatan-topup', function () {
     return view('terapis.pendapatan-topup');
 })->name('pendapatan-topup');
+
+Route::get('/terapis/notifikasi', function () {
+    return view('terapis.notifikasi');
+})->name('terapis.notifikasi');
 
 // Halaman terapis: pendapatan/TOPUP2
 Route::get('/terapis/pendapatan-topup2', function () {

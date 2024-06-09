@@ -19,11 +19,18 @@
 
     <!-- logo tittle bar -->
     <link rel="icon" href="{{ asset('frontend/assets/image/logo-70.png') }}">
+    <!-- //query dan temannya  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <!-- //cdn jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 
     <title>Pijat.in</title>
 </head>
 
 <body>
+    @if(auth()->check() == false)
     <div class="topbar">
         <div class="content">
             <div class="tittle">
@@ -34,8 +41,6 @@
             </div>
         </div>
     </div>
-
-
     <div class="container2">
         <div class="nav-btn">
             <div class="btn1">Semua</div>
@@ -85,6 +90,111 @@
             </div>
         </a>
     </div>
+    @elseif(auth()->check() == true)
+    <div class="topbar">
+        <div class="content">
+            <div class="tittle">
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                        <path d="M19.9492 25.9502L13.0492 19.0502C12.8992 18.9002 12.7932 18.7377 12.7312 18.5627C12.6682 18.3877 12.6367 18.2002 12.6367 18.0002C12.6367 17.8002 12.6682 17.6127 12.7312 17.4377C12.7932 17.2627 12.8992 17.1002 13.0492 16.9502L19.9492 10.0502C20.2242 9.77519 20.5742 9.6377 20.9992 9.6377C21.4242 9.6377 21.7742 9.77519 22.0492 10.0502C22.3242 10.3252 22.4617 10.6752 22.4617 11.1002C22.4617 11.5252 22.3242 11.8752 22.0492 12.1502L16.1992 18.0002L22.0492 23.8502C22.3242 24.1252 22.4617 24.4752 22.4617 24.9002C22.4617 25.3252 22.3242 25.6752 22.0492 25.9502C21.7742 26.2252 21.4242 26.3627 20.9992 26.3627C20.5742 26.3627 20.2242 26.2252 19.9492 25.9502Z" fill="white" />
+                    </svg></a>
+                <p>Riwayat pesanan anda</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="nav-btn">
+            <a href="{{ route('customers.riwayat') }}">
+                <div class="btn1 active">Semua</div>
+            </a>
+            <a href="{{ route('customers.riwayat-dijadwalkan') }}">
+                <div class="btn1">Dijadwalkan</div>
+            </a>
+            <a href="{{ route('customers.riwayat-selesai') }}">
+                <div class="btn1">Selesai</div>
+            </a>
+            <a href="{{ route('customers.riwayat-dibatalkan') }}">
+                <div class="btn1">Dibatalkan</div>
+            </a>
+        </div>
+        <!-- //old  -->
+        <!-- <a class="frame" href="{{ route('detaildijadwalkan') }}" style="text-decoration: none;">
+            <div class="card-riwayat">
+                <div class="head">
+                    <div class="paket">Paket tradisional + Refleksi</div>
+                    <span class="status dijadwalkan">Dijadwalkan</span>
+                </div>
+                <div class="name">Nama Terapist A</div>
+                <div class="tgl">
+                    <div>12/03/2023/ 09:30 AM</div>
+                    <div>Id pesanan : NU99821</div>
+                </div>
+            </div>
+        </a>
+        <a class="frame" href="{{ route('detailselesai') }}" style="text-decoration: none;">
+            <div class="card-riwayat">
+                <div class="head">
+                    <div class="paket">Paket tradisional + Refleksi</div>
+                    <span class="status lunas">selesai</span>
+                </div>
+                <div class="name">Nama Terapist C</div>
+                <div class="tgl">
+                    <div>12/03/2023/ 09:30 AM</div>
+                    <div>Id pesanan : NU99821</div>
+                </div>
+            </div>
+        </a>
+        <a class="frame" href="{{ route('detaildibatalkan') }}" style="text-decoration: none;">
+            <div class="card-riwayat">
+                <div class="head">
+                    <div class="paket">Paket tradisional + Refleksi</div>
+                    <span class="status dibatalkan">Dibatalkan</span>
+                </div>
+                <div class="name">Nama Terapist C</div>
+                <div class="tgl">
+                    <div>12/03/2023/ 09:30 AM</div>
+                    <div>Id pesanan : NU99821</div>
+                </div>
+            </div>
+        </a> -->
+        <!-- //new  -->
+
+        @foreach($user->customers->pemesanan as $pemesanan)
+        <a class="frame" href="javascript:detail({{ $pemesanan->id }})" style="text-decoration: none;">
+            <div class="card-riwayat">
+                <div class="head">
+                    @foreach($pemesanan->pemesanan_detail as $detail)
+                    <div class="paket">
+                        @php
+                        $layanan = \App\Models\Layanan::where('id', $detail->layanan_id)->first();
+                        echo $layanan->nama_layanan;
+                        @endphp
+                    </div>
+                    @endforeach
+                    @if($pemesanan->status_pemesanan == 'Masuk')
+                    <span class="status dijadwalkan" style="color: #46805f; font-weight: 500;">Masuk</span>
+                    @elseif($pemesanan->status_pemesanan == 'Proses')
+                    <span class="status dijadwalkan" style="font-weight: 500;">Proses</span>
+                    @elseif($pemesanan->status_pemesanan == 'Sukses')
+                    <span class="status lunas" style="font-weight: 500;">Selesai</span>
+                    @elseif($pemesanan->status_pemesanan == 'Batal')
+                    <span class="status dibatalkan" style="font-weight: 500;">Dibatalkan</span>
+                    @endif
+                </div>
+                @php
+                $terapis = \App\Models\Terapis::where('id', $pemesanan->terapis_id_1)->first();
+                @endphp
+                <div class="name">{{ $terapis->nama }}</div>
+                <div class="tgl">
+                    <div>{{ $pemesanan->tanggal_pemesanan }} / {{ date('h:i A', strtotime($pemesanan->created_at)) }}</div>
+                    <div>Id pesanan : PSN{{ $pemesanan->id }}</div>
+                </div>
+            </div>
+        </a>
+        @endforeach
+
+    </div>
+    @endif
 
     @if(auth()->check() == false)
     <div class="footer">
@@ -147,9 +257,6 @@
         </div>
     </div>
     @endif
-
-
-
 </body>
 
 </html>

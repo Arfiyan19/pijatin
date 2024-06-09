@@ -35,6 +35,7 @@
         </div>
     </div>
 
+    @if (auth()->check() == false)
 
     <div class="container3">
         <div class="notif">
@@ -101,6 +102,75 @@
 
         </div>
     </div>
+    @elseif(auth()->check() == true)
+    <div class="container3">
+        <div class="notif">
+            @foreach($user->customers->pemesanan as $pemesanan)
+            <div class="card-notif" onclick="detail('{{ $pemesanan->id }}')">
+                <table>
+                    @foreach($pemesanan->pemesanan_detail as $detail)
+                    <tr>
+                        <td colspan="2">
+                            @php
+                            $layanan = \App\Models\Layanan::where('id', $detail->layanan_id)->first();
+                            echo $layanan->nama_layanan;
+                            @endphp
+                        </td>
+                    </tr>
+                    @endforeach
+
+                    <tr>
+                        <!-- if status pemesanan masuk tampil masuk pesanan proses proses  -->
+                        @if($pemesanan->status_pemesanan == 'Masuk')
+                        <td colspan="2">Pesanan Berhasil Masuk, Menunggu Konfirmasi Terapis</td>
+                        @elseif($pemesanan->status_pemesanan == 'Proses')
+                        <td colspan="2">Pesanan anda sedang di proses terapis</td>
+                        @elseif($pemesanan->status_pemesanan == 'selesai')
+                        <td colspan="2">Pesanan anda telah selesai</td>
+                        @endif
+                        <!-- <td colspan="2">{{ $pemesanan->status_pemesanan}}</td> -->
+                    </tr>
+                    <tr>
+                        <td>{{ $pemesanan->tanggal_pemesanan }} / {{ date('h:i A', strtotime($pemesanan->created_at)) }}</td>
+                        <td>Id pesanan : PSN{{ $pemesanan->id }}</td>
+                    </tr>
+                </table>
+            </div>
+            @endforeach
+            <!-- 
+
+            <div class="card-notif">
+                <table>
+                    <tr>
+                        <td colspan="2">Paket tradisional + Refleksi</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Anda belum melunasi tagihan pembayaran</td>
+                    </tr>
+                    <tr>
+                        <td>12/03/2023/ 08:30 AM</td>
+                        <td>Id pesanan : AV06798</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card-notif"><a href="{{ route('customers.cashback') }}">
+                    <table>
+                        <tr>
+                            <td colspan="2">Pengembalian dana</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Dana anda sudah kami kirim mohon untuk mengecek rekening anda</td>
+                        </tr>
+                        <tr>
+                            <td>12/03/2023/ 08:30 AM</td>
+                        </tr>
+                    </table>
+                </a>
+            </div> -->
+        </div>
+    </div>
+    @endif
 
     @if (auth()->check() == false)
     <div class="footer">
@@ -168,7 +238,11 @@
     </div>
     @endif
 
-
+    <script>
+        function detail(id) {
+            window.location.href = "{{ url('customers/notifikasi/detail') }}/" + id;
+        }
+    </script>
 
 </body>
 
